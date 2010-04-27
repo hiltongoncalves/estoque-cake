@@ -5,6 +5,7 @@
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('price');?></th>
+			<th><?php echo $this->Paginator->sort('amount');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
@@ -20,6 +21,7 @@
 		<td><?php echo $product['Product']['id']; ?>&nbsp;</td>
 		<td><?php echo $product['Product']['description']; ?>&nbsp;</td>
 		<td><?php echo $product['Product']['price']; ?>&nbsp;</td>
+		<td><?php echo $product['Product']['amount']; ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($product['User']['name'], array('controller' => 'users', 'action' => 'view', $product['User']['id'])); ?>
 		</td>

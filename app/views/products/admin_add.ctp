@@ -5,6 +5,7 @@
 	<?php
 		echo $this->Form->input('description');
 		echo $this->Form->input('price');
+		echo $this->Form->input('amount');
 		echo $this->Form->input('user_id');
 	?>
 	</fieldset>

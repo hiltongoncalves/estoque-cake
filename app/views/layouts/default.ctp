@@ -39,7 +39,7 @@
 			<h1>
 				<?php
 				if (isset($usuario)) {
-					echo 'Bem vindo <i>'.$usuario['User']['name'].'</i><br /> ';
+					echo 'Bem vindo <i>'.$usuario.'</i><br /> ';
 				}
 				?>
 				[

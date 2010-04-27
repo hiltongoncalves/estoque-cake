@@ -2,6 +2,7 @@
 class SalesController extends AppController {
 
 	var $name = 'Sales';
+	var $uses = array('Sale', 'Product');
 
 	function index() {
 		$this->Sale->recursive = 0;
@@ -81,6 +82,16 @@ class SalesController extends AppController {
 		if (!empty($this->data)) {
 			$this->Sale->create();
 			if ($this->Sale->save($this->data)) {
+					$i = 0;
+					foreach ($this->data['Product'] as $product):
+						foreach ($product as $id):
+						$atualproduct = $this->Product->findById($id);
+						$atualproduct['Product']['amount']--;
+						$this->Product->id = $atualproduct['Product']['id'];
+						$this->Product->saveField('amount', $atualproduct['Product']['amount']);
+						$i++;
+						endforeach;
+					endforeach;
 				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'sale'));
 				$this->redirect(array('action' => 'index'));
 			} else {
