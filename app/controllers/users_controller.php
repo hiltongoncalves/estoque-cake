@@ -113,5 +113,16 @@ class UsersController extends AppController {
 		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'User'));
 		$this->redirect(array('action' => 'index'));
 	}
+	
+	function login() {
+		if ($this->Session->read('Auth.User')) {
+			$this->Session->setFlash('Você está autenticado!');
+			$this->redirect('/admin/users/index', null, false);
+		}
+	}
+	
+	function logout() {
+		$this->redirect($this->Auth->logout());
+	}
 }
 ?>

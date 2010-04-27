@@ -37,18 +37,33 @@
 	<div id="container">
 		<div id="header">
 			<h1>
+				<?php
+				if (isset($usuario)) {
+					echo 'Bem vindo <i>'.$usuario['User']['name'].'</i><br /> ';
+				}
+				?>
 				[
-				<?php echo $this->Html->link('Users', array('controller' => 'users', 'action' => 'index')); ?>
+				<?php echo $this->Html->link('Users', array('admin' => true, 'controller' => 'users', 'action' => 'index')); ?>
 				|
-				<?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?>
+				<?php echo $this->Html->link('Products', array('admin' => true, 'controller' => 'products', 'action' => 'index')); ?>
 				|
-				<?php echo $this->Html->link('Sales', array('controller' => 'sales', 'action' => 'index')); ?>
+				<?php echo $this->Html->link('Sales', array('admin' => true, 'controller' => 'sales', 'action' => 'index')); ?>
+				|
+				<?php
+				if (!isset($usuario)) {
+					echo $this->Html->link('Login', array('admin' => false, 'controller' => 'users', 'action' => 'login'));
+				} else {
+					echo $this->Html->link('Logout', array('admin' => false, 'controller' => 'users', 'action' => 'logout'));
+				}
+				?>
 				]
 			</h1>
 		</div>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
+			
+			<?php echo $this->Session->flash('auth');?>
 
 			<?php echo $content_for_layout; ?>
 

@@ -21,19 +21,15 @@
 			<?php echo $user['User']['address']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Admin'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Tipo'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['admin']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Username'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['username']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Password'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['password']; ?>
+			<?php
+			if($user['User']['admin']) {
+				echo 'Administrador';
+			} else {
+				echo 'Funcionário';
+			}
+			?>
 			&nbsp;
 		</dd>
 	</dl>

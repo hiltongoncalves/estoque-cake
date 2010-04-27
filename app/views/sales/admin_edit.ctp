@@ -1,7 +1,7 @@
 <div class="sales form">
 <?php echo $this->Form->create('Sale');?>
 	<fieldset>
- 		<legend><?php printf(__('Admin Edit %s', true), __('Sale', true)); ?></legend>
+ 		<legend><?php printf(__('Edit %s', true), __('Sale', true)); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('user_id');

@@ -20,7 +20,7 @@
 		<td>
 			<?php echo $this->Html->link($sale['User']['name'], array('controller' => 'users', 'action' => 'view', $sale['User']['id'])); ?>
 		</td>
-		<td><?php echo $sale['Sale']['created']; ?>&nbsp;</td>
+		<td><?php echo $time->niceShort($sale['Sale']['created']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $sale['Sale']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $sale['Sale']['id'])); ?>

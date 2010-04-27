@@ -1,0 +1,7 @@
+2010-04-26 11:13:33 Warning: Warning (2): end() [<a href='http://php.net/function.end'>function.end</a>]: Passed variable is not an array or object in [/var/www/estoque-cake/app/views/users/login.ctp, line 10]
+2010-04-26 11:13:54 Warning: Warning (2): end() [<a href='http://php.net/function.end'>function.end</a>]: Passed variable is not an array or object in [/var/www/estoque-cake/app/views/users/login.ctp, line 10]
+2010-04-26 11:38:36 Warning: Warning (512): Could not find AclComponent. Please include Acl in Controller::$components. in [/var/www/estoque-cake/cake/libs/controller/components/auth.php, line 421]
+2010-04-26 11:39:09 Warning: Warning (512): Could not find AclComponent. Please include Acl in Controller::$components. in [/var/www/estoque-cake/cake/libs/controller/components/auth.php, line 421]
+2010-04-26 11:39:24 Warning: Warning (512): Could not find AclComponent. Please include Acl in Controller::$components. in [/var/www/estoque-cake/cake/libs/controller/components/auth.php, line 421]
+2010-04-26 11:39:28 Warning: Warning (512): Could not find AclComponent. Please include Acl in Controller::$components. in [/var/www/estoque-cake/cake/libs/controller/components/auth.php, line 421]
+2010-04-26 11:39:34 Warning: Warning (512): Could not find AclComponent. Please include Acl in Controller::$components. in [/var/www/estoque-cake/cake/libs/controller/components/auth.php, line 421]

@@ -13,7 +13,7 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $sale['Sale']['created']; ?>
+			<?php echo $time->niceShort($sale['Sale']['created']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -44,7 +44,9 @@
 	</tr>
 	<?php
 		$i = 0;
+		$total = 0;
 		foreach ($sale['Product'] as $product):
+			$total += $product['price'];
 			$class = null;
 			if ($i++ % 2 == 0) {
 				$class = ' class="altrow"';
@@ -62,6 +64,8 @@
 			</td>
 		</tr>
 	<?php endforeach; ?>
+	<th colspan="2"><?php __('Total'); ?></th>
+	<th><?php echo $total;?></th>
 	</table>
 <?php endif; ?>
 

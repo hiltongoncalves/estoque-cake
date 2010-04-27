@@ -1,12 +1,11 @@
 <div class="products form">
 <?php echo $this->Form->create('Product');?>
 	<fieldset>
- 		<legend><?php printf(__('Admin Add %s', true), __('Product', true)); ?></legend>
+ 		<legend><?php printf(__('Add %s', true), __('Product', true)); ?></legend>
 	<?php
 		echo $this->Form->input('description');
 		echo $this->Form->input('price');
 		echo $this->Form->input('user_id');
-		echo $this->Form->input('Sale');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
