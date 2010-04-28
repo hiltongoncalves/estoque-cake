@@ -23,9 +23,9 @@
 	<div id="main">
 		
 		<div class="post">
-
-			<div class="users view">
-			<h2><?php  __('User');?></h2>
+			
+			<blockquote>
+			<h1><?php  __('User');?></h1>
 				<dl><?php $i = 0; $class = ' class="altrow"';?>
 					<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
 					<dd<?php if ($i++ % 2 == 0) echo $class;?>>
@@ -59,7 +59,7 @@
 						&nbsp;
 					</dd>
 				</dl>
-			</div>
+			</blockquote>
 			<div class="related">
 				<h3><?php printf(__('Related %s', true), __('Products', true));?></h3>
 				<?php if (!empty($user['Product'])):?>
