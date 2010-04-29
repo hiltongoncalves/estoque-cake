@@ -1,19 +1,19 @@
 <div id="content-wrap"><div id="content">
-
+<?php echo $this->Session->flash('auth'); ?>
 	<div id="sidebar">
 		
 		<div class="sidebox">
 		
 			<h1 id="clear"><?php __('Actions'); ?></h1>
 			<ul class="sidemenu">
-				<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('User', true)), array('action' => 'edit', $user['User']['id'])); ?> </li>
-				<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('User', true)), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $user['User']['id'])); ?> </li>
-				<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Users', true)), array('action' => 'index')); ?> </li>
-				<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('User', true)), array('action' => 'add')); ?> </li>
-				<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Products', true)), array('controller' => 'products', 'action' => 'index')); ?> </li>
-				<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Product', true)), array('controller' => 'products', 'action' => 'add')); ?> </li>
-				<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sales', true)), array('controller' => 'sales', 'action' => 'index')); ?> </li>
-				<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Sale', true)), array('controller' => 'sales', 'action' => 'add')); ?> </li>
+				<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Usuário', true)), array('action' => 'edit', $user['User']['id'])); ?> </li>
+				<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Usuário', true)), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $user['User']['id'])); ?> </li>
+				<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Usuários', true)), array('action' => 'index')); ?> </li>
+				<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Usuário', true)), array('action' => 'add')); ?> </li>
+				<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Produtos', true)), array('controller' => 'products', 'action' => 'index')); ?> </li>
+				<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Produto', true)), array('controller' => 'products', 'action' => 'add')); ?> </li>
+				<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Vendas', true)), array('controller' => 'sales', 'action' => 'index')); ?> </li>
+				<li><?php echo $this->Html->link(sprintf(__('Nova %s', true), __('Venda', true)), array('controller' => 'sales', 'action' => 'add')); ?> </li>
 			</ul>
 	
 		</div>
@@ -60,6 +60,7 @@
 					</dd>
 				</dl>
 			</blockquote>
+			<br />
 			<div class="related">
 				<h3><?php printf(__('Related %s', true), __('Products', true));?></h3>
 				<?php if (!empty($user['Product'])):?>
@@ -100,6 +101,7 @@
 					</ul>
 				</div>
 			</div>
+			<br />
 			<div class="related">
 				<h3><?php printf(__('Related %s', true), __('Sales', true));?></h3>
 				<?php if (!empty($user['Sale'])):?>
