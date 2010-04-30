@@ -23,7 +23,7 @@
 
 	<div id="header"><div id="header-content">	
 		
-		<h1 id="logo"><a href="index.html" title="">Estoque<span class="gray">CakePHP</span></a></h1>	
+		<h1 id="logo"><a href="/users/index" title="">Estoque<span class="gray">CakePHP</span></a></h1>	
 		<h2 id="slogan"><?php if (isset($usuario)) : echo 'Bem vindo <i>'.$usuario['User']['name'].'</i><br /> '; endif;?></h2>		
 		
 		<!-- Menu Tabs -->

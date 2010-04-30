@@ -1,5 +1,6 @@
 <div id="content-wrap"><div id="content">
 <?php echo $this->Session->flash('auth'); ?>
+<?php echo $this->Session->flash(''); ?>
 	<div id="sidebar">
 
 		<div class="sidebox">
