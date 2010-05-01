@@ -2,6 +2,62 @@
 class Product extends AppModel {
 	var $name = 'Product';
 	var $displayField = 'description';
+	var $validate = array(
+		'description' => array(
+			'alphanumeric' => array(
+				'rule' => array('alphanumeric'),
+				'message' => 'Digite um nome válido para o produto!',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Este campo não pode ser deixado em branco!',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'price' => array(
+			'decimal' => array(
+				'rule' => array('decimal'),
+				'message' => 'Apenas números!',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Este campo não pode ser deixado em branco!',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'amount' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				'message' => 'Apenas números!',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Este campo não pode ser deixado em branco!',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(

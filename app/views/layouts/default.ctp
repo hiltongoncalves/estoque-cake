@@ -57,9 +57,13 @@
 			
 	
 	</div></div>
-	
-	<?php echo $content_for_layout;?>
-		
+	<div id="content-wrap"><div id="content">
+		<?php
+		echo $this->Session->flash('');
+		echo $this->Session->flash('auth');
+		echo $content_for_layout;
+		?>
+	</div></div>		
 <!-- footer starts here -->	
 <!-- footer ends here -->
 	
