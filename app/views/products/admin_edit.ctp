@@ -28,7 +28,7 @@
 				echo $this->Form->input('description', array('label' => 'Descrição'));
 				echo $this->Form->input('price', array('label' => 'Preço'));
 				echo $this->Form->input('amount', array('label' => 'Quantidade'));
-				echo $this->Form->input('user_id', array('label' => 'Usuário'));
+				echo $this->Form->input('user_id', array('label' => 'Usuário', 'default' => $usuario['User']['id'], 'disabled' => true));
 			?>
 			<br />
 		<?php echo $this->Form->end(__('Editar', true));?>

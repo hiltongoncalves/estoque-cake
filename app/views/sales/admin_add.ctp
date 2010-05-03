@@ -20,7 +20,7 @@
  		<h1><?php printf(__('Adicionar %s', true), __('Venda', true)); ?></h1>
 		<?php echo $this->Form->create('Sale');?>
 			<?php
-				echo $this->Form->input('user_id', array('label' => 'Usuário'));
+				echo $this->Form->input('user_id', array('label' => 'Usuário', 'default' => $usuario['User']['id'], 'disabled' => true));
 				echo $this->Form->input('Product', array('label' => 'Produtos'));
 			?>
 		<br />
