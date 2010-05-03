@@ -10,8 +10,6 @@
 			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Produto', true)), array('action' => 'add')); ?> </li>
 			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Usuários', true)), array('controller' => 'users', 'action' => 'index')); ?> </li>
 			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Usuário', true)), array('controller' => 'users', 'action' => 'add')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Vendas', true)), array('controller' => 'sales', 'action' => 'index')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('Nova %s', true), __('Vendas', true)), array('controller' => 'sales', 'action' => 'add')); ?> </li>
 		</ul>
 	
 	</div>
@@ -19,7 +17,10 @@
 </div>
 
 <div id="main">
-	
+	<?php
+	echo $this->Session->flash();
+	echo $this->Session->flash('auth');
+	?>
 	<div class="post">
 
 		<blockquote>
@@ -61,7 +62,6 @@
 				<th><?php __('ID'); ?></th>
 				<th><?php __('ID do Usuário'); ?></th>
 				<th><?php __('Criado em'); ?></th>
-				<th class="actions"><?php __('Actions');?></th>
 			</tr>
 			<?php
 				$i = 0;
@@ -75,21 +75,11 @@
 					<td><?php echo $sale['id'];?></td>
 					<td><?php echo $sale['user_id'];?></td>
 					<td><?php echo $sale['created'];?></td>
-					<td class="actions">
-						<?php echo $this->Html->link(__('View', true), array('controller' => 'sales', 'action' => 'view', $sale['id'])); ?>
-						<?php echo $this->Html->link(__('Edit', true), array('controller' => 'sales', 'action' => 'edit', $sale['id'])); ?>
-						<?php echo $this->Html->link(__('Delete', true), array('controller' => 'sales', 'action' => 'delete', $sale['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $sale['id'])); ?>
-					</td>
 				</tr>
 			<?php endforeach; ?>
 			</table>
 		<?php endif; ?>
 
-			<div class="actions">
-				<ul>
-					<li><?php echo $this->Html->link(sprintf(__('Nova %s', true), __('Venda', true)), array('controller' => 'sales', 'action' => 'add'));?> </li>
-				</ul>
-			</div>
 		</div>
 
 	</div>

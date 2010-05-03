@@ -8,8 +8,6 @@
 			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Usuários', true)), array('action' => 'index'));?></li>
 			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Produtos', true)), array('controller' => 'products', 'action' => 'index')); ?> </li>
 			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Produto', true)), array('controller' => 'products', 'action' => 'add')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Vendas', true)), array('controller' => 'sales', 'action' => 'index')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('Nova %s', true), __('Venda', true)), array('controller' => 'sales', 'action' => 'add')); ?> </li>
 		</ul>
 
 	</div>
@@ -17,7 +15,10 @@
 </div>
 
 <div id="main">
-	
+	<?php
+	echo $this->Session->flash();
+	echo $this->Session->flash('auth');
+	?>
 	<div class="post">
 
 		<div class="users form">
@@ -31,6 +32,8 @@
 				echo $this->Form->input('username', array('label' => 'Login'));
 				echo '<br />';
 				echo $this->Form->input('admin', array('type' => 'checkbox', 'label' => 'Administrador'));
+				echo '<br />';
+				echo $this->Form->input('status', array('type' => 'checkbox', 'label' => 'Status'));
 				echo '<br />';
 			?>
 		<?php echo $this->Form->end(__('Editar', true));?>

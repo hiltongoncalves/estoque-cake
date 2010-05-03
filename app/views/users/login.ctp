@@ -1,5 +1,8 @@
 <div id="main">
-	
+	<?php
+	echo $this->Session->flash();
+	echo $this->Session->flash('auth');
+	?>
 	<div class="post">
 
 		<div class="users form" align="center">

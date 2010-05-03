@@ -8,8 +8,6 @@
 			<li><?php echo $this->Html->link(sprintf(__('Listar %s', true), __('Produtos', true)), array('action' => 'index'));?></li>
 			<li><?php echo $this->Html->link(sprintf(__('Listar %s', true), __('Usuários', true)), array('controller' => 'users', 'action' => 'index')); ?> </li>
 			<li><?php echo $this->Html->link(sprintf(__('Novo %s', true), __('Usuário', true)), array('controller' => 'users', 'action' => 'add')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('Listar %s', true), __('Vendas', true)), array('controller' => 'sales', 'action' => 'index')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('Nova %s', true), __('Venda', true)), array('controller' => 'sales', 'action' => 'add')); ?> </li>
 		</ul>
 		
 	</div>
@@ -17,7 +15,10 @@
 </div>
 
 <div id="main">
-
+	<?php
+	echo $this->Session->flash();
+	echo $this->Session->flash('auth');
+	?>
 	<div class="post">
 		 
 		<h1><?php printf(__('Editar %s', true), __('Produto', true)); ?></h1>

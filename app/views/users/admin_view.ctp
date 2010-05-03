@@ -10,8 +10,6 @@
 			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Usuário', true)), array('action' => 'add')); ?> </li>
 			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Produtos', true)), array('controller' => 'products', 'action' => 'index')); ?> </li>
 			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Produto', true)), array('controller' => 'products', 'action' => 'add')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Vendas', true)), array('controller' => 'sales', 'action' => 'index')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('Nova %s', true), __('Venda', true)), array('controller' => 'sales', 'action' => 'add')); ?> </li>
 		</ul>
 
 	</div>
@@ -19,7 +17,10 @@
 </div>
 
 <div id="main">
-	
+	<?php
+	echo $this->Session->flash();
+	echo $this->Session->flash('auth');
+	?>
 	<div class="post">
 		
 		<blockquote>
@@ -60,7 +61,7 @@
 		</blockquote>
 		<br />
 		<div class="related">
-			<h3><?php printf(__('Related %s', true), __('Products', true));?></h3>
+			<h3><?php printf(__('Produtos %s', true), __('Relacionados', true));?></h3>
 			<?php if (!empty($user['Product'])):?>
 			<table cellpadding = "0" cellspacing = "0">
 			<tr>
@@ -95,13 +96,13 @@
 
 			<div class="actions">
 				<ul>
-					<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Product', true)), array('controller' => 'products', 'action' => 'add'));?> </li>
+					<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Produto', true)), array('controller' => 'products', 'action' => 'add'));?> </li>
 				</ul>
 			</div>
 		</div>
 		<br />
 		<div class="related">
-			<h3><?php printf(__('Related %s', true), __('Sales', true));?></h3>
+			<h3><?php printf(__('Vendas %s', true), __('Relacionadas', true));?></h3>
 			<?php if (!empty($user['Sale'])):?>
 			<table cellpadding = "0" cellspacing = "0">
 			<tr>
@@ -124,19 +125,12 @@
 					<td><?php echo $sale['created'];?></td>
 					<td class="actions">
 						<?php echo $this->Html->link(__('View', true), array('controller' => 'sales', 'action' => 'view', $sale['id'])); ?>
-						<?php echo $this->Html->link(__('Edit', true), array('controller' => 'sales', 'action' => 'edit', $sale['id'])); ?>
-						<?php echo $this->Html->link(__('Delete', true), array('controller' => 'sales', 'action' => 'delete', $sale['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $sale['id'])); ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>
 			</table>
 		<?php endif; ?>
 
-			<div class="actions">
-				<ul>
-					<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Sale', true)), array('controller' => 'sales', 'action' => 'add'));?> </li>
-				</ul>
-			</div>
 		</div>
 
 	</div>

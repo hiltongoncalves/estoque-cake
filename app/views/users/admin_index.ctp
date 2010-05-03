@@ -6,15 +6,16 @@
 			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Usuário', true)), array('action' => 'add')); ?></li>
 			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Produtos', true)), array('controller' => 'products', 'action' => 'index')); ?> </li>
 			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Produto', true)), array('controller' => 'products', 'action' => 'add')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Vendas', true)), array('controller' => 'sales', 'action' => 'index')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Venda', true)), array('controller' => 'sales', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
 
 </div>
 
 <div id="main">
-	
+	<?php
+	echo $this->Session->flash();
+	echo $this->Session->flash('auth');
+	?>
 	<div class="post">
 		
 		<h1><?php __('Usuários');?></h1>
@@ -22,8 +23,8 @@
 			<tr>
 				<th><?php echo $this->Paginator->sort('ID', 'id');?></th>
 				<th><?php echo $this->Paginator->sort('Nome', 'name');?></th>
-				<th><?php echo $this->Paginator->sort('Telefone', 'phone');?></th>
 				<th><?php echo $this->Paginator->sort('Tipo', 'admin');?></th>
+				<th><?php echo $this->Paginator->sort('Status', 'status');?></th>
 				<th class="actions"><?php __('Actions');?></th>
 			</tr>
 		<?php
@@ -37,13 +38,21 @@
 			<tr<?php echo $class;?>>
 				<td><?php echo $user['User']['id']; ?>&nbsp;</td>
 				<td><?php echo $user['User']['name']; ?>&nbsp;</td>
-				<td><?php echo $user['User']['phone']; ?>&nbsp;</td>
 				<td>
 					<?php
 					if($user['User']['admin']) {
 						echo 'Administrador';
 					} else {
 						echo 'Funcionário';
+					}
+					?>
+				</td>
+				<td>
+					<?php
+					if($user['User']['status']) {
+						echo 'Ativo';
+					} else {
+						echo 'Inativo';
 					}
 					?>
 				</td>

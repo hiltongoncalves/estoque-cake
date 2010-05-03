@@ -396,6 +396,8 @@ input.button {
 /* alignment classes */
 .float-left  { float: left; }
 .float-right { float: right; }
+
+
 .align-left  { text-align: left; }
 .align-right {	text-align: right; }
 
@@ -441,7 +443,7 @@ div.paging span a {
 }
 
 /** Notices and Errors **/
-div.message {
+#content-wrap #content #main div.message {
 	clear: both;
 	color: #fff;
 	font-size: 140%;
@@ -450,13 +452,13 @@ div.message {
 	background: #c73e14;
 	padding: 5px;
 }
-div.error-message {
+#content-wrap #content #main div.error-message {
 	clear: both;
 	color: #fff;
 	font-weight: bold;
 	background: #c73e14;
 }
-p.error {
+#content-wrap #content #main p.error {
 	background-color: #e32;
 	color: #fff;
 	font-family: Courier, monospace;
@@ -465,12 +467,12 @@ p.error {
 	padding: 0.8em;
 	margin: 1em 0;
 }
-p.error em {
+#content-wrap #content #main p.error em {
 	color: #000;
 	font-weight: normal;
 	line-height: 140%;
 }
-.notice {
+#content-wrap #content #main .notice {
 	background: #ffcc00;
 	color: #000;
 	display: block;
@@ -480,7 +482,7 @@ p.error em {
 	padding: 0.8em;
 	margin: 1em 0;
 }
-.success {
+#content-wrap #content #main .success {
 	background: green;
 	color: #fff;
 }
