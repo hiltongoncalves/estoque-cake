@@ -40,23 +40,24 @@ class SalesController extends AppController {
 			$this->Sale->create();
 			if ($this->data['Product']['Product']) {
 				if ($this->Sale->save($this->data)) {
-						$i = 0;
-						foreach ($this->data['Product'] as $product):
-							foreach ($product as $id):
-							$atualproduct = $this->Product->findById($id);
-							$atualproduct['Product']['amount']--;
-							$this->Product->id = $atualproduct['Product']['id'];
-							$this->Product->saveField('amount', $atualproduct['Product']['amount']);
-							$i++;
-							endforeach;
+					$idVenda = $this->Sale->id;
+					$i = 0;
+					foreach ($this->data['Product'] as $product):
+						foreach ($product as $id):
+						$atualproduct = $this->Product->findById($id);
+						$atualproduct['Product']['amount']--;
+						$this->Product->id = $atualproduct['Product']['id'];
+						$this->Product->saveField('amount', $atualproduct['Product']['amount']);
+						$i++;
 						endforeach;
-					$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'sale'));
-					$this->redirect(array('action' => 'index'));
+					endforeach;
+					$this->Session->setFlash(sprintf(__('A %s foi confirmada', true), 'venda'));
+					$this->redirect(array('action' => 'view', $idVenda));
 				} else {
-					$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'sale'));
+					$this->Session->setFlash(sprintf(__('A %s não pôde ser salva. Por favor, tente novamente.', true), 'venda'));
 				}
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'sale'));
+				$this->Session->setFlash(sprintf(__('A %s não pôde ser salva. Por favor, tente novamente.', true), 'venda'));
 			}
 		}
 		$users = $this->Sale->User->find('list');

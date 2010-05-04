@@ -24,7 +24,7 @@
 			<?php
 				echo $this->Form->input('id');
 				echo $this->Form->input('created', array('disabled' => true, 'label' => 'Criado em'));
-				echo $this->Form->input('user_id', array('label' => 'Usuário', 'default' => $usuario['User']['id'], 'disabled' => true));
+				echo $this->Form->input('user_id', array('label' => 'Usuário', 'default' => $usuario['User']['id']));
 				echo $this->Form->input('Product', array('label' => 'Produtos'));
 			?>
 			<br />
