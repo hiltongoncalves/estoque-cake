@@ -38,7 +38,7 @@ CREATE TABLE `products_sales` (
 
 LOCK TABLES `products_sales` WRITE;
 /*!40000 ALTER TABLE `products_sales` DISABLE KEYS */;
-INSERT INTO `products_sales` VALUES (1,2,1),(2,3,2),(3,4,2),(4,4,2),(4,3,4),(5,4,4),(6,3,5),(7,4,5),(8,3,6),(9,4,6),(10,3,7),(11,4,7),(12,1,8),(13,2,67),(14,3,8),(15,4,8);
+INSERT INTO `products_sales` VALUES (1,2,1),(2,3,2),(3,4,2),(4,4,2),(5,3,4),(6,4,4),(7,3,5),(8,4,5),(9,3,6),(10,4,6),(11,3,7),(12,4,7),(13,1,8),(14,2,67),(15,3,8),(16,4,8);
 /*!40000 ALTER TABLE `products_sales` ENABLE KEYS */;
 UNLOCK TABLES;
 
