@@ -296,4 +296,6 @@
  */
 	Cache::config('default', array('engine' => 'File'));
 	Configure::write('Config.language', 'pt-br');
+	$monthNames = __c('mon',LC_TIME,true); 
+	$dateFormat = __c('d_fmt',LC_TIME,true);
 ?>

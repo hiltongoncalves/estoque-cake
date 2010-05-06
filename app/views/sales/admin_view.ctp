@@ -36,7 +36,7 @@
 			</dd>
 			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Criado em'); ?></dt>
 			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $time->niceShort($sale['Sale']['created']); ?>
+				<?php echo $time->nice($sale['Sale']['created']); ?>
 				&nbsp;
 			</dd>
 		</dl>
@@ -51,7 +51,6 @@
 				<th><?php __('Descrição'); ?></th>
 				<th><?php __('Preço'); ?></th>
 				<th><?php __('ID do Usuário'); ?></th>
-				<th class="actions"><?php __('Actions');?></th>
 			</tr>
 			<?php
 				$i = 0;
@@ -68,9 +67,6 @@
 					<td><?php echo $product['description'];?></td>
 					<td><?php echo $product['price'];?></td>
 					<td><?php echo $product['user_id'];?></td>
-					<td class="actions">
-						<?php echo $this->Html->link(__('View', true), array('controller' => 'products', 'action' => 'view', $product['id'])); ?>
-					</td>
 				</tr>
 			<?php endforeach; ?>
 			<th colspan="2"><?php __('Total'); ?></th>
