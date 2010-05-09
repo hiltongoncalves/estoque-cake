@@ -25,7 +25,7 @@ class SalesController extends AppController {
 			$this->redirect(array('admin' => false, 'controller' => 'pages', 'action' => 'display', 'home'));
 		}
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'sale'));
+			$this->Session->setFlash(sprintf(__('%s inválida', true), 'Venda'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('sale', $this->Sale->read(null, $id));
@@ -71,15 +71,15 @@ class SalesController extends AppController {
 			$this->redirect(array('admin' => false, 'controller' => 'pages', 'action' => 'display', 'home'));
 		}
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'sale'));
+			$this->Session->setFlash(sprintf(__('%s inválida', true), 'Venda'));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Sale->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'sale'));
+				$this->Session->setFlash(sprintf(__('A %s foi salva', true), 'venda'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'sale'));
+				$this->Session->setFlash(sprintf(__('A %s não pôde ser salva. Por favor, tente novamente.', true), 'venda'));
 			}
 		}
 		if (empty($this->data)) {
@@ -100,10 +100,10 @@ class SalesController extends AppController {
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Sale->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Sale'));
+			$this->Session->setFlash(sprintf(__('%s deletada', true), 'Venda'));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Sale'));
+		$this->Session->setFlash(sprintf(__('%s não foi deletada', true), 'Venda'));
 		$this->redirect(array('action' => 'index'));
 	}
 }

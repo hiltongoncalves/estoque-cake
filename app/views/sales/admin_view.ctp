@@ -21,8 +21,8 @@
 	?>
 	<div class="post">
 
-	<blockquote>
 	<h1><?php  __('Venda');?></h1>
+	<blockquote>
 		<dl><?php $i = 0; $class = ' class="altrow"';?>
 			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('ID'); ?></dt>
 			<dd<?php if ($i++ % 2 == 0) echo $class;?>>

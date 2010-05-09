@@ -24,7 +24,7 @@ class UsersController extends AppController {
 			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
 		}
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
+			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Usuário'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('user', $this->User->read(null, $id));
@@ -38,10 +38,10 @@ class UsersController extends AppController {
 		if (!empty($this->data)) {
 				$this->User->create();
 				if ($this->User->save($this->data)) {
-					$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
+					$this->Session->setFlash(sprintf(__('O %s foi salvo', true), 'usuário'));
 					$this->redirect(array('action' => 'index'));
 				} else {
-					$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'user'));
+					$this->Session->setFlash(sprintf(__('O %s não pôde ser salvo. Por favor, tente novamente.', true), 'usuário'));
 				}
 		}
 	}
@@ -52,15 +52,15 @@ class UsersController extends AppController {
 			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
 		}
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
+			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Usuário'));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->User->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
+				$this->Session->setFlash(sprintf(__('O %s foi salvo', true), 'usuário'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'user'));
+				$this->Session->setFlash(sprintf(__('O %s não pôde ser salvo. Por favor, tente novamente.', true), 'usuário'));
 			}
 		}
 		if (empty($this->data)) {
@@ -74,14 +74,14 @@ class UsersController extends AppController {
 			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
 		}
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'user'));
+			$this->Session->setFlash(sprintf(__('Id inválido para o %s', true), 'usuário'));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->User->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deleted', true), 'User'));
+			$this->Session->setFlash(sprintf(__('%s deletado', true), 'Usuário'));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'User'));
+		$this->Session->setFlash(sprintf(__('%s não foi deletado', true), 'Usuário'));
 		$this->redirect(array('action' => 'index'));
 	}
 	

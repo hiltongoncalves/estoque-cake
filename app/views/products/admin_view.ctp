@@ -23,8 +23,8 @@
 	?>
 	<div class="post">
 
+		<h1><?php  __('Produto');?></h1>
 		<blockquote>
-		<h1><?php  __('Product');?></h1>
 			<dl><?php $i = 0; $class = ' class="altrow"';?>
 				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('ID'); ?></dt>
 				<dd<?php if ($i++ % 2 == 0) echo $class;?>>
