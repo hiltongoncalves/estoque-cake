@@ -5,7 +5,15 @@
 		<h1 id="clear"><?php __('Actions'); ?></h1>
 		<ul class="sidemenu">
 			<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Usuário', true)), array('action' => 'edit', $user['User']['id'])); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Usuário', true)), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $user['User']['id'])); ?> </li>
+			<li>
+			<?php
+			if ($user['User']['status']) {
+				echo $this->Html->link(__('Desativar', true), array('action' => 'desativar', $this->Form->value('User.id')), null, sprintf(__('Você tem certeza que deseja desativar #%s?', true), $user['User']['name']));
+			} else {
+				echo $this->Html->link(sprintf(__('Ativar', true)), array('action' => 'ativar', $user['User']['id']), null, sprintf(__('Você tem certeza que deseja ativar #%s', true), $user['User']['name']));
+			}
+			?>
+			</li>
 			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Usuários', true)), array('action' => 'index')); ?> </li>
 			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Usuário', true)), array('action' => 'add')); ?> </li>
 			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Produtos', true)), array('controller' => 'products', 'action' => 'index')); ?> </li>
@@ -78,7 +86,6 @@
 				<th><?php __('Id'); ?></th>
 				<th><?php __('Description'); ?></th>
 				<th><?php __('Price'); ?></th>
-				<th><?php __('User Id'); ?></th>
 				<th class="actions"><?php __('Actions');?></th>
 			</tr>
 			<?php
@@ -93,7 +100,6 @@
 					<td><?php echo $product['id'];?></td>
 					<td><?php echo $product['description'];?></td>
 					<td><?php echo $product['price'];?></td>
-					<td><?php echo $product['user_id'];?></td>
 					<td class="actions">
 						<?php echo $this->Html->link(__('View', true), array('controller' => 'products', 'action' => 'view', $product['id'])); ?>
 						<?php echo $this->Html->link(__('Edit', true), array('controller' => 'products', 'action' => 'edit', $product['id'])); ?>
@@ -110,3 +116,7 @@
 				</ul>
 			</div>
 		</div>
+		
+	</div>
+
+</div>

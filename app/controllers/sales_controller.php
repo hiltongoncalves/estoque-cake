@@ -76,8 +76,9 @@ class SalesController extends AppController {
 		}
 		if (!empty($this->data)) {
 			if ($this->Sale->save($this->data)) {
+				$idVenda = $this->Sale->id;
 				$this->Session->setFlash(sprintf(__('A %s foi salva', true), 'venda'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $idVenda));
 			} else {
 				$this->Session->setFlash(sprintf(__('A %s não pôde ser salva. Por favor, tente novamente.', true), 'venda'));
 			}

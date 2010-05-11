@@ -177,3 +177,4 @@
 2010-05-03 11:40:29 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/estoque-cake/cake/libs/debugger.php:673) in [/var/www/estoque-cake/cake/libs/controller/controller.php, line 744]
 2010-05-03 11:42:16 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/estoque-cake/cake/libs/debugger.php:673) in [/var/www/estoque-cake/cake/libs/controller/controller.php, line 744]
 2010-05-03 11:42:34 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/estoque-cake/cake/libs/debugger.php:673) in [/var/www/estoque-cake/cake/libs/controller/controller.php, line 744]
+2010-05-11 13:38:25 Warning: Warning (2): sprintf() [http://php.net/function.sprintf]: Too few arguments in [/var/www/estoque-cake/app/views/users/admin_index.ctp, line 64]

@@ -68,7 +68,7 @@ class UsersController extends AppController {
 		}
 	}
 
-	function admin_delete($id = null) {
+	function admin_desativar($id = null) {
 		if (!$this->Auth->user('admin')) {
 			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de usuários.');
 			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
@@ -77,11 +77,30 @@ class UsersController extends AppController {
 			$this->Session->setFlash(sprintf(__('Id inválido para o %s', true), 'usuário'));
 			$this->redirect(array('action'=>'index'));
 		}
-		if ($this->User->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deletado', true), 'Usuário'));
+		$this->User->id = $id;
+		if ($this->User->saveField('status', 0)) {
+			$this->Session->setFlash(sprintf(__('%s desativado', true), 'Usuário'));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(sprintf(__('%s não foi deletado', true), 'Usuário'));
+		$this->Session->setFlash(sprintf(__('%s não foi desativado', true), 'Usuário'));
+		$this->redirect(array('action' => 'index'));
+	}
+	
+	function admin_ativar($id = null) {
+		if (!$this->Auth->user('admin')) {
+			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de usuários.');
+			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
+		}
+		if (!$id) {
+			$this->Session->setFlash(sprintf(__('Id inválido para o %s', true), 'usuário'));
+			$this->redirect(array('action'=>'index'));
+		}
+		$this->User->id = $id;
+		if ($this->User->saveField('status', 1)) {
+			$this->Session->setFlash(sprintf(__('%s ativado', true), 'Usuário'));
+			$this->redirect(array('action'=>'index'));
+		}
+		$this->Session->setFlash(sprintf(__('%s não foi ativado', true), 'Usuário'));
 		$this->redirect(array('action' => 'index'));
 	}
 	

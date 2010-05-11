@@ -4,7 +4,15 @@
 	
 		<h1 id="clear"><?php __('Actions'); ?></h1>
 		<ul class="sidemenu">
-			<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('User.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('User.id'))); ?></li>
+			<li>
+			<?php
+			if (!$this->Form->value('User.status')) {
+				echo $this->Html->link(__('Desativar', true), array('action' => 'desativar', $this->Form->value('User.id')), null, sprintf(__('Você tem certeza que deseja desativar #%s?', true), $this->Form->value('User.name')));
+			} else {
+				echo $this->Html->link(__('Ativar', true), array('action' => 'ativar', $this->Form->value('User.id')), null, sprintf(__('Você tem certeza que deseja ativar #%s?', true), $this->Form->value('User.name')));
+			}
+			?>
+			</li>
 			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Usuários', true)), array('action' => 'index'));?></li>
 			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Produtos', true)), array('controller' => 'products', 'action' => 'index')); ?> </li>
 			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Produto', true)), array('controller' => 'products', 'action' => 'add')); ?> </li>
