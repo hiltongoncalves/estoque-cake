@@ -61,7 +61,7 @@
 					<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $user['User']['id'])); ?>
 					<?php
 					if ($user['User']['status']) {
-						echo $this->Html->link(__('Desativar', true), array('action' => 'desativar', $this->Form->value('User.id')), null, sprintf(__('Você tem certeza que deseja desativar #%s?', true), $user['User']['name']));
+						echo $this->Html->link(__('Desativar', true), array('action' => 'desativar', $user['User']['id']), null, sprintf(__('Você tem certeza que deseja desativar #%s?', true), $user['User']['name']));
 					} else {
 						echo $this->Html->link(sprintf(__('Ativar', true)), array('action' => 'ativar', $user['User']['id']), null, sprintf(__('Você tem certeza que deseja ativar #%s', true), $user['User']['name']));
 					}?>

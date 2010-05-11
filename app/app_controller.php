@@ -10,6 +10,7 @@ class AppController extends Controller {
 		$this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
 		$this->Auth->authError = 'Área Restrita! Efetue login!'; // Mensagem ao entrar em area restrita
 		$this->Auth->loginError = 'Nome de usuário ou senha não conferem!'; // Mensagem quando não se autenticar
+		$this->Auth->userScope = array('User.status' => 1);
 	}
 }
 ?>
