@@ -1,7 +1,43 @@
 <?php
 class AppController extends Controller {
-	var $components = array('Auth', 'Session');
+	
+	var $components = array('Auth', 'Session', 'DebugKit.Toolbar');
 	var $helpers = array('Html', 'Form', 'Time', 'Session');
+	
+	/*
+	 * Product Model
+	 * 
+	 * @var Product
+	 */
+	var $Product;
+	
+	/*
+	 * Sale Model
+	 * 
+	 * @var Sale
+	 */
+	var $Sale;
+	
+	/*
+	 * User Model
+	 * 
+	 * @var User
+	 */
+	var $User;
+		
+	/*
+	 * AuthComponent
+	 * 
+	 * @var AuthComponent
+	 */
+	var $Auth;
+	
+	/*
+	 * SessionComponent
+	 * 
+	 * @var SessionComponent
+	 */
+	var $Session;
 	
 	function beforeFilter() {
 		$this->set('usuario', $this->Auth->user());
