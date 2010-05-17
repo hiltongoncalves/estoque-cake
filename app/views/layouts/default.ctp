@@ -11,7 +11,10 @@
 <meta name="Author" content="Erwin Aligam - ealigam@gmail.com" />
 <meta name="Robots" content="index,follow" />
 
-<?php echo $html->css('PixelGreen', array(), array('media' => 'screen'));?>
+<?php
+echo $html->css('PixelGreen', array(), array('media' => 'screen'));
+echo $javascript->link(array('prototype'));
+?>
 
 <title>Estoque CakePHP</title>
 	

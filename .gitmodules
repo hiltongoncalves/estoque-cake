@@ -1,3 +1,0 @@
-[submodule "localized"]
-	path = app/plugins/localized
-	url = git://github.com/cakephp/localized.git

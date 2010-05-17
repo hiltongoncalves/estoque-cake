@@ -2,7 +2,7 @@
 class SalesController extends AppController {
 
 	var $name = 'Sales';
-	var $uses = array('Sale', 'Product');
+	var $uses = array('Sale', 'Product', 'ProductsSale');
 	var $paginate = array(
 			'limit' => 10,
 			'order' => array(
@@ -28,7 +28,9 @@ class SalesController extends AppController {
 			$this->Session->setFlash(sprintf(__('%s inválida', true), 'Venda'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('sale', $this->Sale->read(null, $id));
+		$quantidades = $this->ProductsSale->find('all', array('conditions' => array('sale_id' => $id)));
+		$sale = $this->Sale->read(null, $id);
+		$this->set(compact('sale', 'quantidades'));
 	}
 
 	function admin_add() {

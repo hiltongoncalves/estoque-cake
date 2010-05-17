@@ -2,7 +2,7 @@
 class AppController extends Controller {
 	
 	var $components = array('Auth', 'Session', 'DebugKit.Toolbar');
-	var $helpers = array('Html', 'Form', 'Time', 'Session');
+	var $helpers = array('Html', 'Form', 'Time', 'Session', 'Ajax');
 	
 	/*
 	 * Product Model

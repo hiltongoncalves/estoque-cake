@@ -51,6 +51,7 @@
 				<th><?php __('Descrição'); ?></th>
 				<th><?php __('Preço'); ?></th>
 				<th><?php __('ID do Usuário'); ?></th>
+				<th><?php __('Qtd'); ?></th>
 			</tr>
 			<?php
 				$i = 0;
@@ -67,15 +68,38 @@
 					<td><?php echo $product['description'];?></td>
 					<td><?php echo $product['price'];?></td>
 					<td><?php echo $product['user_id'];?></td>
+					<td>
+					<div id="qtd">
+						<?php foreach($quantidades as $qtd):
+						$i = 0;
+						?>
+						<div class="qtd<?php echo $i;?>">
+						<?//debug($qtd);?>
+						<?php if($qtd['ProductsSale']['product_id'] == $product['id']):
+						$total *= $qtd['ProductsSale']['amount'];
+						?>
+						<p><?php
+						echo $ajax->form(array('type' => 'post',
+											'options' => array('update'=>'qtd'.$i,
+															'url' => array(
+																	'controller' => 'ProductsSales',
+																	'action' => 'add'))));
+						echo $this->Form->input('ProductsSale.product_id', array('type' => 'hidden', 'value' => $product['user_id']));
+						echo $this->Form->input('ProductsSale.amount', array('label' => 'Quantidade', 'value' => $qtd['ProductsSale']['amount']));
+						echo $this->Form->input('ProductsSale.sale_id',array('type'=>'hidden', 'value' => $sale['Sale']['id']));
+						echo $this->Form->end('Add Qtd');
+						?></p>
+						<?php endif;?>
+						</div>
+						<?php endforeach;?>
+					</div>
+					</td>
 				</tr>
 			<?php endforeach; ?>
 			<th colspan="2"><?php __('Total'); ?></th>
 			<th><?php echo $total;?></th>
 			</table>
-		<?php endif; ?>
-
-			</div>
+			<?php endif; ?>
 		</div>
 	</div>
-		
 </div>
