@@ -84,8 +84,9 @@
 															'url' => array(
 																	'controller' => 'ProductsSales',
 																	'action' => 'add'))));
-						echo $this->Form->input('ProductsSale.product_id', array('type' => 'hidden', 'value' => $product['user_id']));
 						echo $this->Form->input('ProductsSale.amount', array('label' => 'Quantidade', 'value' => $qtd['ProductsSale']['amount']));
+						echo $this->Form->input('ProductsSale.id', array('type' => 'hidden', 'value' => $qtd['ProductsSale']['id']));
+						echo $this->Form->input('ProductsSale.product_id', array('type' => 'hidden', 'value' => $product['id']));
 						echo $this->Form->input('ProductsSale.sale_id',array('type'=>'hidden', 'value' => $sale['Sale']['id']));
 						echo $this->Form->end('Add Qtd');
 						?></p>
