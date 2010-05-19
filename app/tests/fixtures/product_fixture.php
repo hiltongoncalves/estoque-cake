@@ -1,5 +1,5 @@
 <?php
-/* Product Fixture generated on: 2010-05-01 11:05:31 : 1272722551 */
+/* Product Fixture generated on: 2010-05-19 14:05:38 : 1274288558 */
 class ProductFixture extends CakeTestFixture {
 	var $name = 'Product';
 
@@ -16,10 +16,31 @@ class ProductFixture extends CakeTestFixture {
 	var $records = array(
 		array(
 			'id' => 1,
-			'description' => 'Lorem ipsum dolor sit amet',
-			'price' => 1,
+			'description' => 'CAMERA DIGITAL',
+			'price' => 199.50,
 			'user_id' => 1,
-			'amount' => 1
+			'amount' => 45
+		),
+		array(
+			'id' => 2,
+			'description' => 'FILMADORA',
+			'price' => 999.50,
+			'user_id' => 1,
+			'amount' => 57
+		),
+		array(
+			'id' => 3,
+			'description' => 'NOTEBOOK',
+			'price' => 1999.50,
+			'user_id' => 1,
+			'amount' => 66
+		),
+		array(
+			'id' => 4,
+			'description' => 'MONITOR LCD 15',
+			'price' => 399.50,
+			'user_id' => 1,
+			'amount' => 37
 		),
 	);
 }

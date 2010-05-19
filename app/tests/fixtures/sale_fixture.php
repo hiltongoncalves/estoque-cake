@@ -1,5 +1,5 @@
 <?php
-/* Sale Fixture generated on: 2010-05-01 11:05:42 : 1272723462 */
+/* Sale Fixture generated on: 2010-05-19 14:05:38 : 1274288558 */
 class SaleFixture extends CakeTestFixture {
 	var $name = 'Sale';
 
@@ -15,7 +15,27 @@ class SaleFixture extends CakeTestFixture {
 		array(
 			'id' => 1,
 			'user_id' => 1,
-			'created' => '2010-05-01 11:17:42'
+			'created' => '2010-02-26 09:56:30'
+		),
+		array(
+			'id' => 2,
+			'user_id' => 1,
+			'created' => '2010-03-02 17:03:58'
+		),
+		array(
+			'id' => 3,
+			'user_id' => 1,
+			'created' => '2010-03-09 17:34:40'
+		),
+		array(
+			'id' => 4,
+			'user_id' => 1,
+			'created' => '2010-03-16 17:34:53'
+		),
+		array(
+			'id' => 5,
+			'user_id' => 1,
+			'created' => '2010-03-25 17:36:11'
 		),
 	);
 }
