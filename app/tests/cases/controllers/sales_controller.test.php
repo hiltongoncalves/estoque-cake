@@ -1,5 +1,5 @@
 <?php
-/* Sales Test cases generated on: 2010-04-26 09:04:45 : 1272286245*/
+/* Sales Test cases generated on: 2010-05-27 18:05:39 : 1274994519*/
 App::import('Controller', 'Sales');
 
 class TestSalesController extends SalesController {
@@ -21,26 +21,6 @@ class SalesControllerTestCase extends CakeTestCase {
 	function endTest() {
 		unset($this->Sales);
 		ClassRegistry::flush();
-	}
-
-	function testIndex() {
-
-	}
-
-	function testView() {
-
-	}
-
-	function testAdd() {
-
-	}
-
-	function testEdit() {
-
-	}
-
-	function testDelete() {
-
 	}
 
 	function testAdminIndex() {

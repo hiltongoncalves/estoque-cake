@@ -1,5 +1,5 @@
 <?php
-/* ProductsSales Test cases generated on: 2010-05-17 13:05:03 : 1274112723*/
+/* ProductsSales Test cases generated on: 2010-05-27 18:05:29 : 1274994509*/
 App::import('Controller', 'ProductsSales');
 
 class TestProductsSalesController extends ProductsSalesController {
@@ -11,7 +11,7 @@ class TestProductsSalesController extends ProductsSalesController {
 }
 
 class ProductsSalesControllerTestCase extends CakeTestCase {
-	var $fixtures = array('app.products_sale');
+	var $fixtures = array('app.sale', 'app.user', 'app.product', 'app.products_sale');
 
 	function startTest() {
 		$this->ProductsSales =& new TestProductsSalesController();
@@ -21,6 +21,10 @@ class ProductsSalesControllerTestCase extends CakeTestCase {
 	function endTest() {
 		unset($this->ProductsSales);
 		ClassRegistry::flush();
+	}
+
+	function testAdminAdd() {
+
 	}
 
 }

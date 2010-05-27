@@ -1,5 +1,5 @@
 <?php
-/* Users Test cases generated on: 2010-04-26 09:04:58 : 1272286258*/
+/* Users Test cases generated on: 2010-05-27 18:05:43 : 1274994523*/
 App::import('Controller', 'Users');
 
 class TestUsersController extends UsersController {
@@ -23,26 +23,6 @@ class UsersControllerTestCase extends CakeTestCase {
 		ClassRegistry::flush();
 	}
 
-	function testIndex() {
-
-	}
-
-	function testView() {
-
-	}
-
-	function testAdd() {
-
-	}
-
-	function testEdit() {
-
-	}
-
-	function testDelete() {
-
-	}
-
 	function testAdminIndex() {
 
 	}
@@ -59,7 +39,19 @@ class UsersControllerTestCase extends CakeTestCase {
 
 	}
 
-	function testAdminDelete() {
+	function testAdminDesativar() {
+
+	}
+
+	function testAdminAtivar() {
+
+	}
+
+	function testLogin() {
+
+	}
+
+	function testLogout() {
 
 	}
 

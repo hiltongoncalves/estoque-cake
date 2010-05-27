@@ -1,6 +1,6 @@
 <?php 
 /* SVN FILE: $Id$ */
-/* App schema generated on: 2010-05-19 14:05:24 : 1274288544*/
+/* App schema generated on: 2010-05-27 18:05:49 : 1274995789*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -40,11 +40,13 @@ class AppSchema extends CakeSchema {
 		'name' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 60),
 		'phone' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 15),
 		'address' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 200),
+		'email' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 80),
 		'admin' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 4),
-		'username' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 45),
+		'username' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 45, 'key' => 'unique'),
 		'password' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 45),
 		'status' => array('type' => 'integer', 'null' => true, 'default' => '1', 'length' => 4),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
+		'cpf' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 11, 'key' => 'unique'),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'cpf_UNIQUE' => array('column' => 'cpf', 'unique' => 1), 'username_UNIQUE' => array('column' => 'username', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
 }

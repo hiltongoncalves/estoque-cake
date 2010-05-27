@@ -1,5 +1,5 @@
 <?php
-/* Sale Fixture generated on: 2010-05-19 14:05:38 : 1274288558 */
+/* Sale Fixture generated on: 2010-05-27 18:05:16 : 1274994616 */
 class SaleFixture extends CakeTestFixture {
 	var $name = 'Sale';
 
