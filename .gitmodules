@@ -1,0 +1,9 @@
+[submodule "app/plugins/debug_kit"]
+	path = app/plugins/debug_kit
+	url = git://github.com/cakephp/debug_kit.git
+[submodule "app/plugins/localized"]
+	path = app/plugins/localized
+	url = git://github.com/cakephp/localized.git
+[submodule "app/plugins/cake_ptbr"]
+	path = app/plugins/cake_ptbr
+	url = git://github.com/jrbasso/cake_ptbr.git

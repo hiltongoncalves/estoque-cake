@@ -16,7 +16,7 @@ class Product extends AppModel {
 		'price' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
-				'message' => 'Apenas números!',
+				'message' => 'Apenas números decimais!',
 				'allowEmpty' => false,
 				'required' => true,
 				//'last' => false, // Stop validation after this rule

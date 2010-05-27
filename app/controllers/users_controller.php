@@ -36,13 +36,18 @@ class UsersController extends AppController {
 			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
 		}
 		if (!empty($this->data)) {
-				$this->User->create();
-				if ($this->User->save($this->data)) {
-					$this->Session->setFlash(sprintf(__('O %s foi salvo', true), 'usuário'));
-					$this->redirect(array('action' => 'index'));
-				} else {
-					$this->Session->setFlash(sprintf(__('O %s não pôde ser salvo. Por favor, tente novamente.', true), 'usuário'));
+			$this->User->create();
+			if ($this->User->save($this->data)) {
+				$this->Session->setFlash(sprintf(__('O %s foi salvo', true), 'usuário'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				if (!$this->data['User']['password'] == $this->data['User']['password_confirm']) {
+					$this->Session->setFlash(sprintf(__('A senha não coincide com a confirmação.', true)));
 				}
+				$this->data['User']['password'] = null;
+				$this->data['User']['password_confirm'] = null;
+				$this->Session->setFlash(sprintf(__('O %s não pôde ser salvo. Por favor, tente novamente.', true), 'usuário'));
+			}
 		}
 	}
 

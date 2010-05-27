@@ -25,10 +25,10 @@
 		<?php echo $this->Form->create('Product');?>
 			<?php
 				echo $this->Form->input('id');
-				echo $this->Form->input('description', array('label' => 'Descrição'));
+				echo $this->Form->input('description', array('label' => 'Descrição', 'disabled' => true));
 				echo $this->Form->input('price', array('label' => 'Preço'));
 				echo $this->Form->input('amount', array('label' => 'Quantidade'));
-				echo $this->Form->input('user_id', array('label' => 'Usuário', 'default' => $usuario['User']['id']));
+				echo $this->Form->input('user_id', array('label' => 'Usuário', 'default' => $usuario['User']['id'], 'type' => 'hidden'));
 			?>
 			<br />
 		<?php echo $this->Form->end(__('Editar', true));?>

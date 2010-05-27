@@ -48,5 +48,5 @@
  * Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
-	setlocale(LC_TIME,"br_BR.UTF-8"); 
+	setlocale(LC_TIME,"br_BR.UTF-8");
 ?>

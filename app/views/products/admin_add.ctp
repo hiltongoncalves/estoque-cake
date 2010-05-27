@@ -23,9 +23,9 @@
 		<?php echo $this->Form->create('Product');?>
 			<?php
 				echo $this->Form->input('description', array('label' => 'Descrição'));
-				echo $this->Form->input('price', array('label' => 'Preço'));
+				echo $this->Form->input('price', array('label' => 'Preço', 'after' => ' Ex.: 35.00'));
 				echo $this->Form->input('amount', array('label' => 'Quantidade'));
-				echo $this->Form->input('user_id', array('label' => 'Usuário', 'default' => $usuario['User']['id']));
+				echo $this->Form->input('user_id', array('label' => 'Usuário', 'value' => $usuario['User']['id'], 'type' => 'hidden'));
 			?>
 			<br />
 		<?php echo $this->Form->end(__('Adicionar', true));?>

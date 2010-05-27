@@ -6,9 +6,19 @@ class User extends AppModel {
 	var $displayField = 'name';
 	var $validate = array(
 		'name' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
-				'message' => 'Digite um nome válido para o usuário!',
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Este campo não pode ser deixado em branco!',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'cpf' => array(
+			'cpf' => array(
+				'rule' => array('ssn', null , 'br'),
+				'message' => 'Digite um CPF válido!',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -53,6 +63,16 @@ class User extends AppModel {
 			'notempty' => array(
 				'rule' => array('notempty'),
 				'message' => 'Este campo não pode ser deixado em branco!',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'email' => array(
+			'email' => array(
+				'rule' => array('email'),
+				'message' => 'Digite um email válido!',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
