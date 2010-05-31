@@ -7,3 +7,6 @@
 [submodule "app/plugins/cake_ptbr"]
 	path = app/plugins/cake_ptbr
 	url = git://github.com/jrbasso/cake_ptbr.git
+[submodule "app/plugins/migrations"]
+	path = app/plugins/migrations
+	url = git://github.com/CakeDC/Migrations.git
