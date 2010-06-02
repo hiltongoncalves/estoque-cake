@@ -33,12 +33,12 @@
 		<h1><?php printf(__('Edit %s', true), __('Usuários', true)); ?></h1>
 			<?php echo $this->Form->create('User');?>
 			<?php
-				echo $this->Form->input('name', array('label' => 'Nome' , 'disabled' => true));
-				echo $this->Form->input('cpf', array('label' => 'CPF', 'disabled' => true));
+				echo $this->Form->input('name', array('label' => 'Nome'));
+				echo $this->Form->input('cpf', array('label' => 'CPF'));
 				echo $this->Form->input('phone', array('label' => 'Telefone'));
 				echo $this->Form->input('address', array('label' => 'Endereço'));
 				echo $this->Form->input('email', array('label' => 'Email'));
-				echo $this->Form->input('username', array('label' => 'Login', 'disabled' => true));
+				echo $this->Form->input('username', array('label' => 'Login'));
 				echo $this->Html->tag('br');
 				echo $this->Form->input('admin', array('type' => 'checkbox', 'label' => false, 'after' => ' Administrador'));
 				echo $this->Form->input('status', array('type' => 'checkbox', 'label' => false, 'after' => ' Status'));

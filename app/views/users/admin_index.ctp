@@ -21,7 +21,6 @@
 		<h1><?php __('Usuários');?></h1>
 		<table cellpadding="0" cellspacing="0">
 			<tr>
-				<th><?php echo $this->Paginator->sort('ID', 'id');?></th>
 				<th><?php echo $this->Paginator->sort('Nome', 'name');?></th>
 				<th><?php echo $this->Paginator->sort('Tipo', 'admin');?></th>
 				<th><?php echo $this->Paginator->sort('Status', 'status');?></th>
@@ -36,7 +35,6 @@
 			}
 		?>
 			<tr<?php echo $class;?>>
-				<td><?php echo $user['User']['id']; ?>&nbsp;</td>
 				<td><?php echo $user['User']['name']; ?>&nbsp;</td>
 				<td>
 					<?php

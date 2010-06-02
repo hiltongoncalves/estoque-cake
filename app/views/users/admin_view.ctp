@@ -34,22 +34,27 @@
 		<h1><?php  __('Usuário');?></h1>
 		<blockquote>
 			<dl><?php $i = 0; $class = ' class="altrow"';?>
-				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
-				<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-					<?php echo $user['User']['id']; ?>
-					&nbsp;
-				</dd>
-				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
+				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Nome'); ?></dt>
 				<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 					<?php echo $user['User']['name']; ?>
 					&nbsp;
 				</dd>
-				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Phone'); ?></dt>
+				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('CPF'); ?></dt>
+				<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+					<?php echo $user['User']['cpf']; ?>
+					&nbsp;
+				</dd>
+				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Telefone'); ?></dt>
 				<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 					<?php echo $user['User']['phone']; ?>
 					&nbsp;
 				</dd>
-				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Address'); ?></dt>
+				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Email'); ?></dt>
+				<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+					<?php echo $user['User']['email']; ?>
+					&nbsp;
+				</dd>
+				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Endereço'); ?></dt>
 				<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 					<?php echo $user['User']['address']; ?>
 					&nbsp;
@@ -83,9 +88,8 @@
 			<?php if (!empty($user['Product'])):?>
 			<table cellpadding = "0" cellspacing = "0">
 			<tr>
-				<th><?php __('Id'); ?></th>
-				<th><?php __('Description'); ?></th>
-				<th><?php __('Price'); ?></th>
+				<th><?php __('Descrição'); ?></th>
+				<th><?php __('Preço'); ?></th>
 				<th class="actions"><?php __('Actions');?></th>
 			</tr>
 			<?php
@@ -97,7 +101,6 @@
 					}
 				?>
 				<tr<?php echo $class;?>>
-					<td><?php echo $product['id'];?></td>
 					<td><?php echo $product['description'];?></td>
 					<td><?php echo $product['price'];?></td>
 					<td class="actions">

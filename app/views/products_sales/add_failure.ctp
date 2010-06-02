@@ -1,1 +1,1 @@
-<p><b>Não foi possivel adicionar a quantidade, por favor tente novamente.</b></p>
+<p><b>NÃ£o foi possivel adicionar a quantidade, por favor tente novamente.</b></p>

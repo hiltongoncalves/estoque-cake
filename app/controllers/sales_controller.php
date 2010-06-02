@@ -6,7 +6,7 @@ class SalesController extends AppController {
 	var $paginate = array(
 			'limit' => 10,
 			'order' => array(
-				'Sale.created' => 'asc'
+				'Sale.created' => 'desc'
 			)
 	);
 
@@ -81,10 +81,10 @@ class SalesController extends AppController {
 				$idVenda = $this->Sale->id;
 				$this->Session->setFlash(sprintf(__('A %s foi salva', true), 'venda'));
 				$this->redirect(array('action' => 'view', $idVenda));
-			} else {
-				$this->Session->setFlash(sprintf(__('A %s não pôde ser salva. Por favor, tente novamente.', true), 'venda'));
+				} else {
+					$this->Session->setFlash(sprintf(__('A %s não pôde ser salva. Por favor, tente novamente.', true), 'venda'));
+				}
 			}
-		}
 		if (empty($this->data)) {
 			$this->data = $this->Sale->read(null, $id);
 		}

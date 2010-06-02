@@ -24,11 +24,6 @@
 	<h1><?php  __('Venda');?></h1>
 	<blockquote>
 		<dl><?php $i = 0; $class = ' class="altrow"';?>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('ID'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $sale['Sale']['id']; ?>
-				&nbsp;
-			</dd>
 			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Usuário'); ?></dt>
 			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 				<?php echo $this->Html->link($sale['User']['name'], array('controller' => 'users', 'action' => 'view', $sale['User']['id'])); ?>
@@ -47,10 +42,8 @@
 			<?php if (!empty($sale['Product'])):?>
 			<table cellpadding = "0" cellspacing = "0">
 			<tr>
-				<th><?php __('ID'); ?></th>
 				<th><?php __('Descrição'); ?></th>
 				<th><?php __('Preço'); ?></th>
-				<th><?php __('ID do Usuário'); ?></th>
 				<th><?php __('Qtd'); ?></th>
 			</tr>
 			<?php
@@ -64,17 +57,14 @@
 					}
 				?>
 				<tr<?php echo $class;?>>
-					<td><?php echo $product['id'];?></td>
 					<td><?php echo $product['description'];?></td>
 					<td><?php echo $product['price'];?></td>
-					<td><?php echo $product['user_id'];?></td>
 					<td>
 					<div id="qtd">
 						<?php foreach($quantidades as $qtd):
 						$i = 0;
 						?>
 						<div class="qtd<?php echo $i;?>">
-						<?//debug($qtd);?>
 						<?php if($qtd['ProductsSale']['product_id'] == $product['id']):
 						$total *= $qtd['ProductsSale']['amount'];
 						?>
@@ -97,7 +87,7 @@
 					</td>
 				</tr>
 			<?php endforeach; ?>
-			<th colspan="2"><?php __('Total'); ?></th>
+			<th><?php __('Total'); ?></th>
 			<th><?php echo $total;?></th>
 			</table>
 			<?php endif; ?>

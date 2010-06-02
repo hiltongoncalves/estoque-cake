@@ -26,11 +26,6 @@
 		<h1><?php  __('Produto');?></h1>
 		<blockquote>
 			<dl><?php $i = 0; $class = ' class="altrow"';?>
-				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('ID'); ?></dt>
-				<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-					<?php echo $product['Product']['id']; ?>
-					&nbsp;
-				</dd>
 				<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Descrição'); ?></dt>
 				<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 					<?php echo $product['Product']['description']; ?>
@@ -59,7 +54,6 @@
 			<?php if (!empty($product['Sale'])):?>
 			<table cellpadding = "0" cellspacing = "0">
 			<tr>
-				<th><?php __('ID'); ?></th>
 				<th><?php __('ID do Usuário'); ?></th>
 				<th><?php __('Criado em'); ?></th>
 			</tr>
@@ -72,7 +66,6 @@
 					}
 				?>
 				<tr<?php echo $class;?>>
-					<td><?php echo $sale['id'];?></td>
 					<td><?php echo $sale['user_id'];?></td>
 					<td><?php echo $sale['created'];?></td>
 				</tr>

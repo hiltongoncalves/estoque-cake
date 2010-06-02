@@ -24,6 +24,13 @@ class AppController extends Controller {
 	 * @var User
 	 */
 	var $User;
+
+	/*
+	 * ProductsSale Model
+	 *
+	 * @var ProductsSale
+	 */
+	var $ProductsSale;
 		
 	/*
 	 * AuthComponent

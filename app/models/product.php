@@ -3,16 +3,6 @@ class Product extends AppModel {
 	var $name = 'Product';
 	var $displayField = 'description';
 	var $validate = array(
-		'description' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
-				'message' => 'Digite um nome válido para o produto!',
-				'allowEmpty' => false,
-				'required' => true,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			)
-		),
 		'price' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
