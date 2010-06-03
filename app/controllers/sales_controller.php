@@ -43,16 +43,6 @@ class SalesController extends AppController {
 			if ($this->data['Product']['Product']) {
 				if ($this->Sale->save($this->data)) {
 					$idVenda = $this->Sale->id;
-					$i = 0;
-					foreach ($this->data['Product'] as $product):
-						foreach ($product as $id):
-						$atualproduct = $this->Product->findById($id);
-						$atualproduct['Product']['amount']--;
-						$this->Product->id = $atualproduct['Product']['id'];
-						$this->Product->saveField('amount', $atualproduct['Product']['amount']);
-						$i++;
-						endforeach;
-					endforeach;
 					$this->Session->setFlash(sprintf(__('A %s foi confirmada', true), 'venda'));
 					$this->redirect(array('action' => 'view', $idVenda));
 				} else {
