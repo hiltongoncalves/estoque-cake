@@ -52,14 +52,6 @@ class User extends AppModel {
 			),
 		),
 		'address' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
-				'message' => 'Digite um endereço válido!',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
 			'notempty' => array(
 				'rule' => array('notempty'),
 				'message' => 'Este campo não pode ser deixado em branco!',

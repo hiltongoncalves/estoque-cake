@@ -118,6 +118,11 @@ tr.row-a {
 tr.row-b {
 	background: #EFEFEF;
 }
+
+.altrowAlert td {
+	color: #fff;
+	background: #c73e14;
+}
 /* end - table */
 
 /* form elements */

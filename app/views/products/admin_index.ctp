@@ -34,6 +34,9 @@
 			if ($i++ % 2 == 0) {
 				$class = ' class="altrow"';
 			}
+			if ($product['Product']['amount'] < 10) {
+				$class = ' class="altrowAlert"';
+			}
 		?>
 		<tr<?php echo $class;?>>
 			<td><?php echo $product['Product']['description']; ?>&nbsp;</td>

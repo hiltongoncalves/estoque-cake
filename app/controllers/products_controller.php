@@ -54,6 +54,7 @@ class ProductsController extends AppController {
 			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de produtos.');
 			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
 		}
+		$this->set('product', $this->Product->read(null, $id));
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Produto'));
 			$this->redirect(array('action' => 'index'));

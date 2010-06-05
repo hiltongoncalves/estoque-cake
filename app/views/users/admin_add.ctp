@@ -24,7 +24,7 @@
 			<?php echo $this->Form->create('User');?>
 			<?php
 				echo $this->Form->input('name', array('label' => 'Nome'));
-				echo $this->Form->input('cpf', array('label' => 'CPF', 'after' => ' apenas numeros'));
+				echo $this->Form->input('cpf', array('label' => 'CPF', 'after' => ' apenas números'));
 				echo $this->Form->input('phone', array('label' => 'Telefone', 'after' => ' Ex.: (99) 9999-9999'));
 				echo $this->Form->input('address', array('label' => 'Endereço'));
 				echo $this->Form->input('email', array('label' => 'Email', 'after' => ' Ex.: exemplo@exemplo.com'));
