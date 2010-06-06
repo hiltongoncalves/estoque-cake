@@ -16,7 +16,7 @@ echo $html->css('PixelGreen', array(), array('media' => 'screen'));
 echo $javascript->link(array('prototype'));
 ?>
 
-<title>Estoque CakePHP</title>
+<title>SCE - Sistema de Controle de Estoque</title>
 	
 </head>
 
@@ -27,7 +27,7 @@ echo $javascript->link(array('prototype'));
 	<div id="header"><div id="header-content">	
 		
 		<h1 id="logo">
-		<a title="">Estoque<span class="gray">CakePHP</span></a></h1>	
+		<a title="">Estoque<span class="gray">LOJA X</span></a></h1>
 		<h2 id="slogan"><?php if (isset($usuario)) : echo 'Bem vindo <i>'.$usuario['User']['name'].'</i><br /> '; endif;?></h2>		
 		
 		<!-- Menu Tabs -->
