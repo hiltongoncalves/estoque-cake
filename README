@@ -43,6 +43,10 @@ Dar permissao total de escrita e leitura à pasta SCE_ROOT/app/tmp
 Alterar "LOJA X" para o nome desejado no arquivo
 SCE_ROOT/app/views/layouts/default.ctp na linha 30.
 
+7) Testando a aplicação
+Para acessar basta ir no navegador e digitar http://localhost/SCE_ROOT.
+O usuário inicial é 'admin' e a senha 'admin'.
+
 
 --------------------------
 Links

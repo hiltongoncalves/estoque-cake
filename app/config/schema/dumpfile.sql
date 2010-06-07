@@ -49,7 +49,3 @@ CREATE TABLE `users` (
 INSERT INTO `estoque`.`users`
 (`id`, `name`, `admin`, `username`, `password`, `status`)
 VALUES (1, 'Administrador', 1, 'admin', 'd01e94c2b5e45b246769b5659a9d4a17f1072c63', 1);
-
-INSERT INTO `estoque`.`users`
-(`id`, `name`, `admin`, `username`, `password`, `status`)
-VALUES (2, 'Funcionario', 0, 'funcionario', 'e4a6f8abea229a9b16ba301fa67641a1a1d2c01a', 1);
