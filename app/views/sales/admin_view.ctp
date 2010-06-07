@@ -89,6 +89,7 @@
 			<?php endforeach; ?>
 			<th><?php __('Total'); ?></th>
 			<th><?php echo $total;?></th>
+			<td><?php echo $this->Form->submit('Atualizar', array ('onClick' => 'window.location.href=window.location.href'));?></td>
 			</table>
 			<?php endif; ?>
 		</div>
