@@ -77,9 +77,9 @@ class DATABASE_CONFIG {
 		'driver' => 'mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => '',
-		'password' => '',
-		'database' => '',
+		'login' => 'root',
+		'password' => '099605',
+		'database' => 'estoque',
 		'prefix' => '',
 		'encoding' => 'utf8'
 	);
