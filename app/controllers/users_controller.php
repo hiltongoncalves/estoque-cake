@@ -9,12 +9,17 @@ class UsersController extends AppController {
 		)
 	);
 
-	function admin_index() {
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allowedActions = array('*');
+	}
+
+	function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
 
-	function admin_view($id = null) {
+	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Usuário'));
 			$this->redirect(array('action' => 'index'));
@@ -22,7 +27,7 @@ class UsersController extends AppController {
 		$this->set('user', $this->User->read(null, $id));
 	}
 
-	function admin_add() {
+	function add() {
 		if (!empty($this->data)) {
 			$this->User->create();
 			if ($this->User->save($this->data)) {
@@ -39,7 +44,7 @@ class UsersController extends AppController {
 		}
 	}
 
-	function admin_edit($id = null) {
+	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Usuário'));
 			$this->redirect(array('action' => 'index'));
@@ -57,7 +62,7 @@ class UsersController extends AppController {
 		}
 	}
 
-	function admin_desativar($id = null) {
+	function desativar($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Id inválido para o %s', true), 'usuário'));
 			$this->redirect(array('action'=>'index'));
@@ -71,7 +76,7 @@ class UsersController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	function admin_ativar($id = null) {
+	function ativar($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Id inválido para o %s', true), 'usuário'));
 			$this->redirect(array('action'=>'index'));

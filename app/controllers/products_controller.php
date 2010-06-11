@@ -9,12 +9,12 @@ class ProductsController extends AppController {
 		)
 	);
 
-	function admin_index() {
+	function index() {
 		$this->Product->recursive = 0;
 		$this->set('products', $this->paginate());
 	}
 
-	function admin_view($id = null) {
+	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Produto'));
 			$this->redirect(array('action' => 'index'));
@@ -22,7 +22,7 @@ class ProductsController extends AppController {
 		$this->set('product', $this->Product->read(null, $id));
 	}
 
-	function admin_add() {
+	function add() {
 		if (!empty($this->data)) {
 			$this->Product->create();
 			if ($this->Product->save($this->data)) {
@@ -37,7 +37,7 @@ class ProductsController extends AppController {
 		$this->set(compact('users', 'sales'));
 	}
 
-	function admin_edit($id = null) {
+	function edit($id = null) {
 		$this->set('product', $this->Product->read(null, $id));
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Produto'));
@@ -59,7 +59,7 @@ class ProductsController extends AppController {
 		$this->set(compact('users', 'sales'));
 	}
 
-	function admin_delete($id = null) {
+	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Id inválido para o %s', true), 'produto'));
 			$this->redirect(array('action'=>'index'));

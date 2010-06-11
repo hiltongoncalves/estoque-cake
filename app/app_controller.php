@@ -1,7 +1,7 @@
 <?php
 class AppController extends Controller {
 	
-	var $components = array('Auth', 'Session', 'DebugKit.Toolbar');
+	var $components = array('Acl', 'Auth', 'Session', 'DebugKit.Toolbar');
 	var $helpers = array('Html', 'Form', 'Time', 'Session', 'Ajax', 'Javascript');
 	
 	/*
@@ -48,6 +48,7 @@ class AppController extends Controller {
 	
 	function beforeFilter() {
 		$this->set('usuario', $this->Auth->user());
+		$this->Auth->authorize = 'actions';
 		$this->Auth->loginAction = array('admin' => false, 'controller' => 'users', 'action' => 'login');
 		$this->Auth->loginRedirect = array('controller' => 'pages', 'action' => 'display', 'home');
 		$this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');

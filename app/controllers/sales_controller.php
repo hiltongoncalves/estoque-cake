@@ -10,12 +10,12 @@ class SalesController extends AppController {
 			)
 	);
 
-	function admin_index() {
+	function index() {
 		$this->Sale->recursive = 0;
 		$this->set('sales', $this->paginate());		
 	}
 
-	function admin_view($id = null) {
+	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('%s inválida', true), 'Venda'));
 			$this->redirect(array('action' => 'index'));
@@ -25,7 +25,7 @@ class SalesController extends AppController {
 		$this->set(compact('sale', 'quantidades'));
 	}
 
-	function admin_add() {
+	function add() {
 		if (!empty($this->data)) {
 			$this->Sale->create();
 			if ($this->data['Product']['Product']) {
@@ -45,7 +45,7 @@ class SalesController extends AppController {
 		$this->set(compact('users', 'products'));
 	}
 
-	function admin_edit($id = null) {
+	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('%s inválida', true), 'Venda'));
 			$this->redirect(array('action' => 'index'));
@@ -67,7 +67,7 @@ class SalesController extends AppController {
 		$this->set(compact('users', 'products'));
 	}
 
-	function admin_delete($id = null) {
+	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'sale'));
 			$this->redirect(array('action'=>'index'));
