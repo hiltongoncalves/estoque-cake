@@ -10,19 +10,11 @@ class ProductsController extends AppController {
 	);
 
 	function admin_index() {
-		if (!$this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de produtos.');
-			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		$this->Product->recursive = 0;
 		$this->set('products', $this->paginate());
 	}
 
 	function admin_view($id = null) {
-		if (!$this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de produtos.');
-			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Produto'));
 			$this->redirect(array('action' => 'index'));
@@ -31,10 +23,6 @@ class ProductsController extends AppController {
 	}
 
 	function admin_add() {
-		if (!$this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de produtos.');
-			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		if (!empty($this->data)) {
 			$this->Product->create();
 			if ($this->Product->save($this->data)) {
@@ -50,10 +38,6 @@ class ProductsController extends AppController {
 	}
 
 	function admin_edit($id = null) {
-		if (!$this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de produtos.');
-			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		$this->set('product', $this->Product->read(null, $id));
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Produto'));
@@ -76,10 +60,6 @@ class ProductsController extends AppController {
 	}
 
 	function admin_delete($id = null) {
-		if (!$this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de produtos.');
-			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Id inválido para o %s', true), 'produto'));
 			$this->redirect(array('action'=>'index'));

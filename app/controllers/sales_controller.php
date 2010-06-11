@@ -11,19 +11,11 @@ class SalesController extends AppController {
 	);
 
 	function admin_index() {
-		if ($this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas funcionários possuem acesso ao módulo de vendas.');
-			$this->redirect(array('admin' => false, 'controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		$this->Sale->recursive = 0;
 		$this->set('sales', $this->paginate());		
 	}
 
 	function admin_view($id = null) {
-		if ($this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas funcionários possuem acesso ao módulo de vendas.');
-			$this->redirect(array('admin' => false, 'controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('%s inválida', true), 'Venda'));
 			$this->redirect(array('action' => 'index'));
@@ -34,10 +26,6 @@ class SalesController extends AppController {
 	}
 
 	function admin_add() {
-		if ($this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas funcionários possuem acesso ao módulo de vendas.');
-			$this->redirect(array('admin' => false, 'controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		if (!empty($this->data)) {
 			$this->Sale->create();
 			if ($this->data['Product']['Product']) {
@@ -58,10 +46,6 @@ class SalesController extends AppController {
 	}
 
 	function admin_edit($id = null) {
-		if ($this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas funcionários possuem acesso ao módulo de vendas.');
-			$this->redirect(array('admin' => false, 'controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('%s inválida', true), 'Venda'));
 			$this->redirect(array('action' => 'index'));
@@ -84,10 +68,6 @@ class SalesController extends AppController {
 	}
 
 	function admin_delete($id = null) {
-		if ($this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas funcionários possuem acesso ao módulo de vendas.');
-			$this->redirect(array('admin' => false, 'controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'sale'));
 			$this->redirect(array('action'=>'index'));

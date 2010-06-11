@@ -10,19 +10,11 @@ class UsersController extends AppController {
 	);
 
 	function admin_index() {
-		if (!$this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de usuários.');
-			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
 
 	function admin_view($id = null) {
-		if (!$this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de usuários.');
-			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Usuário'));
 			$this->redirect(array('action' => 'index'));
@@ -31,10 +23,6 @@ class UsersController extends AppController {
 	}
 
 	function admin_add() {
-		if (!$this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de usuários.');
-			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		if (!empty($this->data)) {
 			$this->User->create();
 			if ($this->User->save($this->data)) {
@@ -52,10 +40,6 @@ class UsersController extends AppController {
 	}
 
 	function admin_edit($id = null) {
-		if (!$this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de usuários.');
-			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Usuário'));
 			$this->redirect(array('action' => 'index'));
@@ -74,10 +58,6 @@ class UsersController extends AppController {
 	}
 
 	function admin_desativar($id = null) {
-		if (!$this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de usuários.');
-			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Id inválido para o %s', true), 'usuário'));
 			$this->redirect(array('action'=>'index'));
@@ -92,10 +72,6 @@ class UsersController extends AppController {
 	}
 	
 	function admin_ativar($id = null) {
-		if (!$this->Auth->user('admin')) {
-			$this->Session->setFlash('Apenas administradores possuem acesso ao módulo de usuários.');
-			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
-		}
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Id inválido para o %s', true), 'usuário'));
 			$this->redirect(array('action'=>'index'));
