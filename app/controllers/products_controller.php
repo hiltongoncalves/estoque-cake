@@ -9,6 +9,11 @@ class ProductsController extends AppController {
 		)
 	);
 
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->authError = 'Você não está autorizado a acessar essa área!';
+	}
+
 	function index() {
 		$this->Product->recursive = 0;
 		$this->set('products', $this->paginate());

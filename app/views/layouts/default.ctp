@@ -28,21 +28,28 @@ echo $javascript->link(array('prototype'));
 		
 		<h1 id="logo">
 		<a title="">Estoque<span class="gray">LOJA X</span></a></h1>
-		<h2 id="slogan"><?php if (isset($usuario)) : echo 'Bem vindo <i>'.$usuario['User']['username'].'</i><br /> '; endif;?></h2>
+		<h2 id="slogan">
+		<?php
+		if (($this->Session->read('Auth'))) {
+			echo 'Bem vindo <i>'.$this->Session->read('Auth.User.username').'</i><br /> ';
+		}
+		?>
+		</h2>
 		
 		<!-- Menu Tabs -->
 		<ul>
 			
 			<?php
 			if (isset($usuario)) : 	?>
-				<li><?php echo $this->Html->link('Usuários', array('controller' => 'users', 'action' => 'index')); ?></li>	
+				<li><?php echo $this->Html->link('Usuários', array('controller' => 'users', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Grupos', array('controller' => 'groups', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link('Produtos', array('controller' => 'products', 'action' => 'index')); ?></li>
 				<li><?php echo $this->Html->link('Vendas', array('controller' => 'sales', 'action' => 'index')); ?></li>
 			<?php
 			endif;
 			?>
 			<li><?php
-					if (!isset($usuario)) {
+					if (!$this->Session->read('Auth')) {
 						echo $this->Html->link('Entrar', array('controller' => 'users', 'action' => 'login'), array('id' => 'current'));
 					} else {
 						echo $this->Html->link('Sair', array('controller' => 'users', 'action' => 'logout'), array('id' => 'current'));

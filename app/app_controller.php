@@ -62,6 +62,7 @@ class AppController extends Controller {
 		$this->Auth->authError = 'Área Restrita! Efetue login!'; // Mensagem ao entrar em area restrita
 		$this->Auth->loginError = 'Nome de usuário ou senha não conferem!'; // Mensagem quando não se autenticar
 		$this->Auth->actionPath = 'controllers/';
+		$this->Auth->allowedActions = array('logout', 'display', 'initDB', 'login', 'build_acl');
 	}
 
 	function build_acl() {
@@ -196,16 +197,16 @@ class AppController extends Controller {
 		}
 	}
 
-	/**
-	* Obtém os nomes dos controllers de plugin...
-	*
-	* Este método irá retornar um array com os nomes dos controllers de plugin e também
-	* assegurar que os controllers estejam disponíveis para que possamos obter os nomes
-	* dos métodos fazendo um App::import para cada controller de plugin.
-	*
-	* @return array com nomes de controllers de plugin.
-	*
-	*/
+/**
+ * Obtém os nomes dos controllers de plugin...
+ *
+ * Este método irá retornar um array com os nomes dos controllers de plugin e também
+ * assegurar que os controllers estejam disponíveis para que possamos obter os nomes
+ * dos métodos fazendo um App::import para cada controller de plugin.
+ *
+ * @return array com nomes de controllers de plugin.
+ *
+ */
 	function _getPluginControllerNames() {
 		App::import('Core', 'File', 'Folder');
 		$paths = Configure::getInstance();
@@ -245,6 +246,7 @@ class AppController extends Controller {
 		}
 		return $arr;
 	}
+
 
 }
 ?>

@@ -10,6 +10,11 @@ class SalesController extends AppController {
 			)
 	);
 
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->authError = 'Você não está autorizado a acessar essa área!';
+	}
+
 	function index() {
 		$this->Sale->recursive = 0;
 		$this->set('sales', $this->paginate());		

@@ -1,4 +1,8 @@
 <div class="users index">
+	<?php
+	echo $this->Session->flash();
+	echo $this->Session->flash('auth');
+	?>
 	<h2><?php __('Users');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>

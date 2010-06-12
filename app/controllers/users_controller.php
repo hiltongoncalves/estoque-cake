@@ -5,7 +5,8 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allowedActions = array('login');
+		$this->Auth->authError = 'Você não está autorizado a acessar essa área!';
+		//$this->Auth->allowedActions = array('*');
 	}
 
 	function index() {
@@ -76,6 +77,7 @@ class UsersController extends AppController {
 	}
 
 	function logout() {
+		$this->Auth->authError = null;
 		$this->Session->setFlash('Logout realizado com sucesso!');
 		$this->redirect($this->Auth->logout());
 		$this->Session->destroy();
@@ -84,22 +86,21 @@ class UsersController extends AppController {
 	function initDB() {
 		$group =& $this->User->Group;
 
-		// Permissão para administradores
+		// Permissão total aos admins
 		$group->id = 1;
+		$this->Acl->allow($group, 'controllers');
+
+		// Permissão parcial para gerentes
+		$group->id = 2;
 		$this->Acl->deny($group, 'controllers');
-		$this->Acl->allow($group, 'controlles/Pages');
 		$this->Acl->allow($group, 'controllers/Users');
 		$this->Acl->allow($group, 'controllers/Products');
 
-		// Permissão para funcionários
-		$group->id = 2;
+		// Permissão somente para vendas para funcionarios
+		$group->id = 3;
 		$this->Acl->deny($group, 'controllers');
-		$this->Acl->allow($group, 'controlles/Pages');
-		$this->Acl->allow($group, 'controlles/Sales');
+		$this->Acl->allow($group, 'controllers/Sales');
 		$this->Acl->allow($group, 'controllers/ProductsSales');
-		$this->Acl->allow($group, 'controllers/Users/login');
-		$this->Acl->allow($group, 'controllers/Users/logout');
-
 	}
 }
 ?>
