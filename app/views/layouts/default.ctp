@@ -28,33 +28,24 @@ echo $javascript->link(array('prototype'));
 		
 		<h1 id="logo">
 		<a title="">Estoque<span class="gray">LOJA X</span></a></h1>
-		<h2 id="slogan"><?php if (isset($usuario)) : echo 'Bem vindo <i>'.$usuario['User']['name'].'</i><br /> '; endif;?></h2>		
+		<h2 id="slogan"><?php if (isset($usuario)) : echo 'Bem vindo <i>'.$usuario['User']['username'].'</i><br /> '; endif;?></h2>
 		
 		<!-- Menu Tabs -->
 		<ul>
 			
 			<?php
-			if (isset($usuario)) : 
-				if ($usuario['User']['admin']) : ?>
-				<li><?php echo $this->Html->link('Usuários', array('admin' => true, 'controller' => 'users', 'action' => 'index')); ?></li>		
-				<li><?php echo $this->Html->link('Produtos', array('admin' => true, 'controller' => 'products', 'action' => 'index')); ?></li>	
+			if (isset($usuario)) : 	?>
+				<li><?php echo $this->Html->link('Usuários', array('controller' => 'users', 'action' => 'index')); ?></li>	
+				<li><?php echo $this->Html->link('Produtos', array('controller' => 'products', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Vendas', array('controller' => 'sales', 'action' => 'index')); ?></li>
 			<?php
-				endif;
-			endif;
-			?>
-			<?php
-			if (isset($usuario)) : 
-				if (!$usuario['User']['admin']) : ?>
-					<li><?php echo $this->Html->link('Vendas', array('admin' => true, 'controller' => 'sales', 'action' => 'index')); ?></li>
-			<?php
-				endif;
 			endif;
 			?>
 			<li><?php
 					if (!isset($usuario)) {
-						echo $this->Html->link('Entrar', array('admin' => false, 'controller' => 'users', 'action' => 'login'), array('id' => 'current'));
+						echo $this->Html->link('Entrar', array('controller' => 'users', 'action' => 'login'), array('id' => 'current'));
 					} else {
-						echo $this->Html->link('Sair', array('admin' => false, 'controller' => 'users', 'action' => 'logout'), array('id' => 'current'));
+						echo $this->Html->link('Sair', array('controller' => 'users', 'action' => 'logout'), array('id' => 'current'));
 					}
 			?></li>			
 		</ul>		

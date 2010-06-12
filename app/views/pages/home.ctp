@@ -7,15 +7,8 @@
 			if (isset($usuario)) : 
 				if ($usuario['User']['admin']) : ?>
 				<li><?php echo $this->Html->link('Usuários', array('admin' => true, 'controller' => 'users', 'action' => 'index')); ?></li>		
-				<li><?php echo $this->Html->link('Produtos', array('admin' => true, 'controller' => 'products', 'action' => 'index')); ?></li>	
-			<?php
-				endif;
-			endif;
-			?>
-			<?php
-			if (isset($usuario)) : 
-				if (!$usuario['User']['admin']) : ?>
-					<li><?php echo $this->Html->link('Vendas', array('admin' => true, 'controller' => 'sales', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Produtos', array('admin' => true, 'controller' => 'products', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Vendas', array('admin' => true, 'controller' => 'sales', 'action' => 'index')); ?></li>
 			<?php
 				endif;
 			endif;

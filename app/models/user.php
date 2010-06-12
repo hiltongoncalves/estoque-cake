@@ -1,77 +1,29 @@
 <?php
-App::import('Lib', 'Localized.BrValidation');
-
 class User extends AppModel {
 	var $name = 'User';
-	var $displayField = 'name';
+	var $actsAs = array('Acl' => 'requester');
 	var $validate = array(
-		'name' => array(
+		'username' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Este campo não pode ser deixado em branco!',
+				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'cpf' => array(
-			'cpf' => array(
-				'rule' => array('ssn', null , 'br'),
-				'message' => 'Digite um CPF válido!',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+		'password' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Este campo não pode ser deixado em branco!',
+				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'phone' => array(
-			'phone' => array(
-				'rule' => array('phone', null , 'br'),
-				'message' => 'Digite um telefone válido!',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-			'notempty' => array(
-				'rule' => array('notempty'),
-				'message' => 'Este campo não pode ser deixado em branco!',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'address' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				'message' => 'Este campo não pode ser deixado em branco!',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'email' => array(
-			'email' => array(
-				'rule' => array('email'),
-				'message' => 'Digite um email válido!',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'admin' => array(
+		'group_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -81,44 +33,18 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'username' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
-				'message' => 'Digite um login válido!',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-			'notempty' => array(
-				'rule' => array('notempty'),
-				'message' => 'Este campo não pode ser deixado em branco!',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'password' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
-				'message' => 'Digite uma senha válida!',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-			'notempty' => array(
-				'rule' => array('notempty'),
-				'message' => 'Este campo não pode ser deixado em branco!',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+	var $belongsTo = array(
+		'Group' => array(
+			'className' => 'Group',
+			'foreignKey' => 'group_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 
 	var $hasMany = array(
 		'Product' => array(
@@ -149,15 +75,37 @@ class User extends AppModel {
 		)
 	);
 
-	var $belongsTo = array(
-		'Group' => array(
-			'className' => 'Group',
-			'foreignKey' => 'group_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
+	/*
+	 * Callback afterSave
+	 *
+	 * Atualiza o aro para o usuário
+	 *
+	 * @access public
+	 * @return void
+	 */
+	function afterSave($created) {
+		$parent = $this->parentNode();
+		$parent = $this->node($parent);
+		$node = $this->node();
+		$aro = $node[0];
+		$aro['Aro']['parent_id'] = $parent[0]['Aro']['id'];
+		$this->Aro->save($aro);
+	}
+
+	function parentNode() {
+		if (!$this->id && empty($this->data)) {
+			return null;
+		}
+		$data = $this->data;
+		if (empty($this->data)) {
+			$data = $this->read();
+		}
+		if (!$data['User']['group_id']) {
+			return null;
+		} else {
+			return array('Group' => array('id' => $data['User']['group_id']));
+		}
+	}
 
 }
 ?>

@@ -2,16 +2,10 @@
 class UsersController extends AppController {
 
 	var $name = 'Users';
-	var $paginate = array(
-		'limit' => 10,
-		'order' => array(
-			'User.id' => 'asc'
-		)
-	);
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allowedActions = array('*');
+		$this->Auth->allowedActions = array('login');
 	}
 
 	function index() {
@@ -21,7 +15,7 @@ class UsersController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Usuário'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('user', $this->User->read(null, $id));
@@ -31,76 +25,81 @@ class UsersController extends AppController {
 		if (!empty($this->data)) {
 			$this->User->create();
 			if ($this->User->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('O %s foi salvo', true), 'usuário'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				if (!$this->data['User']['password'] == $this->data['User']['password_confirm']) {
-					$this->Session->setFlash(sprintf(__('A senha não coincide com a confirmação.', true)));
-				}
-				$this->data['User']['password'] = null;
-				$this->data['User']['password_confirm'] = null;
-				$this->Session->setFlash(sprintf(__('O %s não pôde ser salvo. Por favor, tente novamente.', true), 'usuário'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'user'));
 			}
 		}
+		$groups = $this->User->Group->find('list');
+		$this->set(compact('groups'));
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Usuário'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->User->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('O %s foi salvo', true), 'usuário'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('O %s não pôde ser salvo. Por favor, tente novamente.', true), 'usuário'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'user'));
 			}
 		}
 		if (empty($this->data)) {
 			$this->data = $this->User->read(null, $id);
 		}
+		$groups = $this->User->Group->find('list');
+		$this->set(compact('groups'));
 	}
 
-	function desativar($id = null) {
+	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Id inválido para o %s', true), 'usuário'));
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'user'));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->User->id = $id;
-		if ($this->User->saveField('status', 0)) {
-			$this->Session->setFlash(sprintf(__('%s desativado', true), 'Usuário'));
+		if ($this->User->delete($id)) {
+			$this->Session->setFlash(sprintf(__('%s deleted', true), 'User'));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(sprintf(__('%s não foi desativado', true), 'Usuário'));
+		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'User'));
 		$this->redirect(array('action' => 'index'));
 	}
-	
-	function ativar($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Id inválido para o %s', true), 'usuário'));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->User->id = $id;
-		if ($this->User->saveField('status', 1)) {
-			$this->Session->setFlash(sprintf(__('%s ativado', true), 'Usuário'));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(sprintf(__('%s não foi ativado', true), 'Usuário'));
-		$this->redirect(array('action' => 'index'));
-	}
-	
-	function login() {
+
+	 function login() {
 		if ($this->Session->read('Auth.User')) {
 			$this->Session->setFlash('Você está autenticado!');
-			$this->redirect('/admin/users/index', null, false);
+			$this->redirect('/users/index', null, false);
 		}
 	}
-	
+
 	function logout() {
 		$this->Session->setFlash('Logout realizado com sucesso!');
 		$this->redirect($this->Auth->logout());
 		$this->Session->destroy();
+	}
+
+	function initDB() {
+		$group =& $this->User->Group;
+
+		// Permissão para administradores
+		$group->id = 1;
+		$this->Acl->deny($group, 'controllers');
+		$this->Acl->allow($group, 'controlles/Pages');
+		$this->Acl->allow($group, 'controllers/Users');
+		$this->Acl->allow($group, 'controllers/Products');
+
+		// Permissão para funcionários
+		$group->id = 2;
+		$this->Acl->deny($group, 'controllers');
+		$this->Acl->allow($group, 'controlles/Pages');
+		$this->Acl->allow($group, 'controlles/Sales');
+		$this->Acl->allow($group, 'controllers/ProductsSales');
+		$this->Acl->allow($group, 'controllers/Users/login');
+		$this->Acl->allow($group, 'controllers/Users/logout');
+
 	}
 }
 ?>

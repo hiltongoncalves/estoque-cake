@@ -1,5 +1,5 @@
 <?php
-/* Groups Test cases generated on: 2010-06-11 16:06:36 : 1276282956*/
+/* Groups Test cases generated on: 2010-06-11 17:06:24 : 1276287924*/
 App::import('Controller', 'Groups');
 
 class TestGroupsController extends GroupsController {
