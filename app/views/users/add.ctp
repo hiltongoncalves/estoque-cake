@@ -1,25 +1,31 @@
-<div class="users form">
-<?php echo $this->Form->create('User');?>
-	<fieldset>
- 		<legend><?php printf(__('Add %s', true), __('User', true)); ?></legend>
-	<?php
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
-		echo $this->Form->input('group_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
+<div id="sidebar">
 
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Users', true)), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Groups', true)), array('controller' => 'groups', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Group', true)), array('controller' => 'groups', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Products', true)), array('controller' => 'products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Product', true)), array('controller' => 'products', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sales', true)), array('controller' => 'sales', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Sale', true)), array('controller' => 'sales', 'action' => 'add')); ?> </li>
-	</ul>
+	<div class="sidebox">
+
+		<h1 class="clear"><?php __('Ações'); ?></h1>
+		<ul class="sidemenu">
+			<li><?php echo $this->Html->link(sprintf(__('Novo %s', true), __('Usuário', true)), array('action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(sprintf(__('Listar %s', true), __('Usuários', true)), array('action' => 'index')); ?> </li>
+		</ul>
+
+	</div>
+
+</div>
+
+<div id="main">
+	<?php
+	echo $this->Session->flash();
+	echo $this->Session->flash('auth');
+	?>
+	<div class="post">
+	<h1><?php printf(__('Adicionar %s', true), __('Usuário', true)); ?></h1>
+	<?php echo $this->Form->create('User');?>
+		<?php
+			echo $this->Form->input('username', array('label' => 'Login'));
+			echo $this->Form->input('password', array('label' => 'Senha'));
+			echo $this->Form->input('group_id', array('label' => 'Grupo'));
+		?>
+		<br />
+	<?php echo $this->Form->end(__('Submit', true));?>
+	</div>
 </div>

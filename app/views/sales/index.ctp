@@ -4,6 +4,7 @@
 		<h1 class="clear"><?php __('Actions'); ?></h1>
 		<ul class="sidemenu">
 			<li><?php echo $this->Html->link(sprintf(__('Nova %s', true), __('Venda', true)), array('action' => 'add')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('Listar %s', true), __('Vendas', true)), array('action' => 'index')); ?></li>
 		</ul>
 
 	</div>
@@ -34,7 +35,7 @@
 		?>
 		<tr<?php echo $class;?>>
 			<td>
-				<?php echo $this->Html->link($sale['User']['name'], array('controller' => 'users', 'action' => 'view', $sale['User']['id'])); ?>
+				<?php echo $this->Html->link($sale['User']['username'], array('controller' => 'users', 'action' => 'view', $sale['User']['id'])); ?>
 			</td>
 			<td><?php echo $time->niceShort($sale['Sale']['created']); ?>&nbsp;</td>
 			<td class="actions">

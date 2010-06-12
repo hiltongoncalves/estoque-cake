@@ -4,8 +4,7 @@
 		<h1 class="clear"><?php __('Ações'); ?></h1>
 		<ul class="sidemenu">
 			<li><?php echo $this->Html->link(sprintf(__('Novo %s', true), __('Produto', true)), array('action' => 'add')); ?></li>
-			<li><?php echo $this->Html->link(sprintf(__('Listar %s', true), __('Usuários', true)), array('controller' => 'users', 'action' => 'index')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('Novo %s', true), __('Usuário', true)), array('controller' => 'users', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(sprintf(__('Listar %s', true), __('Produtos', true)), array('action' => 'index')); ?> </li>
 		</ul>
 	
 	</div>

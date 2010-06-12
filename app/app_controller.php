@@ -54,7 +54,6 @@ class AppController extends Controller {
 	var $Session;
 	
 	function beforeFilter() {
-		$this->set('usuario', $this->Auth->user());
 		$this->Auth->authorize = 'actions';
 		$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
 		$this->Auth->loginRedirect = array('controller' => 'pages', 'action' => 'display', 'home');

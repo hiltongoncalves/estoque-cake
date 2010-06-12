@@ -38,23 +38,19 @@ echo $javascript->link(array('prototype'));
 		
 		<!-- Menu Tabs -->
 		<ul>
-			
-			<?php
-			if (isset($usuario)) : 	?>
-				<li><?php echo $this->Html->link('Usuários', array('controller' => 'users', 'action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link('Grupos', array('controller' => 'groups', 'action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link('Produtos', array('controller' => 'products', 'action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link('Vendas', array('controller' => 'sales', 'action' => 'index')); ?></li>
-			<?php
-			endif;
-			?>
-			<li><?php
-					if (!$this->Session->read('Auth')) {
-						echo $this->Html->link('Entrar', array('controller' => 'users', 'action' => 'login'), array('id' => 'current'));
-					} else {
-						echo $this->Html->link('Sair', array('controller' => 'users', 'action' => 'logout'), array('id' => 'current'));
-					}
-			?></li>			
+			<li><?php echo $this->Html->link('Usuários', array('controller' => 'users', 'action' => 'index')); ?></li>
+			<li><?php echo $this->Html->link('Grupos', array('controller' => 'groups', 'action' => 'index')); ?></li>
+			<li><?php echo $this->Html->link('Produtos', array('controller' => 'products', 'action' => 'index')); ?></li>
+			<li><?php echo $this->Html->link('Vendas', array('controller' => 'sales', 'action' => 'index')); ?></li>
+			<li>
+				<?php
+				if (!$this->Session->read('Auth')) {
+					echo $this->Html->link('Entrar', array('controller' => 'users', 'action' => 'login'), array('id' => 'current'));
+				} else {
+					echo $this->Html->link('Sair', array('controller' => 'users', 'action' => 'logout'), array('id' => 'current'));
+				}
+				?>
+			</li>
 		</ul>		
 			
 	

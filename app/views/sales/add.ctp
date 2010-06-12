@@ -4,6 +4,7 @@
 		
 		<h1 class="clear"><?php __('Actions'); ?></h1>
 		<ul class="sidemenu">
+			<li><?php echo $this->Html->link(sprintf(__('Nova %s', true), __('Vendas', true)), array('action' => 'add'));?></li>
 			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Vendas', true)), array('action' => 'index'));?></li>
 		</ul>
 
@@ -20,7 +21,7 @@
  		<h1><?php printf(__('Adicionar %s', true), __('Venda', true)); ?></h1>
 		<?php echo $this->Form->create('Sale');?>
 			<?php
-				echo $this->Form->input('user_id', array('label' => 'Usuário', 'value' => $usuario['User']['id'], 'type' => 'hidden'));
+				echo $this->Form->input('user_id', array('label' => 'Usuário', 'value' => $this->Session->read('Auth.User.id'), 'type' => 'hidden'));
 				echo $this->Form->input('Product', array('label' => 'Produtos'));
 			?>
 		<br />
