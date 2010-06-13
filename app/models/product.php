@@ -1,8 +1,38 @@
 <?php
+/**
+ * Product Model
+ *
+ * PHP version 5
+ *
+ * @category Model
+ * @package estoque-cake
+ * @subpackage estoque-cake.app
+ * @version 2.0
+ * @author Vitor Pacheco Costa <vitor-p.c@hotmail.com>
+ * @license http://www.opensource.org/licenses/mit-license.php The MIT License
+ */
 class Product extends AppModel {
-	var $name = 'Product';
-	var $displayField = 'description';
-	var $validate = array(
+/**
+ * Model name
+ *
+ * @var string
+ * @access public
+ */
+	public $name = 'Product';
+/**
+ * Model displayField
+ *
+ * @var string
+ * @access public
+ */
+	public $displayField = 'description';
+/**
+ * Validation
+ *
+ * @var array
+ * @access public
+ */
+	public $validate = array(
 		'price' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
@@ -24,9 +54,15 @@ class Product extends AppModel {
 			)
 		)
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
-	var $belongsTo = array(
+/**
+ * Model associations: belongsTo
+ *
+ * The Associations below have been created with all possible keys, those that are not needed can be removed
+ *
+ * @var array
+ * @access public
+ */
+	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
@@ -35,8 +71,13 @@ class Product extends AppModel {
 			'order' => ''
 		)
 	);
-
-	var $hasAndBelongsToMany = array(
+/**
+ * Model associations: hasAndBelongsToMany
+ *
+ * @var array
+ * @access public
+ */
+	public $hasAndBelongsToMany = array(
 		'Sale' => array(
 			'className' => 'Sale',
 			'joinTable' => 'products_sales',

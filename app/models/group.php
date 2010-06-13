@@ -1,8 +1,42 @@
 <?php
+/**
+ * Group Model
+ *
+ * PHP version 5
+ *
+ * @category Model
+ * @package estoque-cake
+ * @subpackage estoque-cake.app
+ * @version 2.0
+ * @author Vitor Pacheco Costa <vitor-p.c@hotmail.com>
+ * @license http://www.opensource.org/licenses/mit-license.php The MIT License
+ */
 class Group extends AppModel {
-	var $name = 'Group';
-	var $actsAs = array('Acl' => array('requester'));
-	var $validate = array(
+/**
+ * Model name
+ *
+ * @var string
+ * @access public
+ */
+	public $name = 'Group';
+/**
+ * Behaviors used by the Model
+ *
+ * @var array
+ * @access public
+ */
+	public $actsAs = array(
+		'Acl' => array(
+			'requester'
+		)
+	);
+/**
+ * Validation
+ *
+ * @var array
+ * @access public
+ */
+	public $validate = array(
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -14,9 +48,15 @@ class Group extends AppModel {
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
-	var $hasMany = array(
+/**
+ * Model associations: hasMany
+ *
+ * The Associations below have been created with all possible keys, those that are not needed can be removed
+ *
+ * @var array
+ * @access public
+ */
+	public $hasMany = array(
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'group_id',
@@ -32,7 +72,7 @@ class Group extends AppModel {
 		)
 	);
 
-	function parentNode() {
+	public function parentNode() {
 		return null;
 	}
 

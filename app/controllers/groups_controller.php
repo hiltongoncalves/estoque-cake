@@ -1,28 +1,67 @@
 <?php
+/**
+ * Groups Controller
+ *
+ * PHP version 5
+ *
+ * @category Controller
+ * @package estoque-cake
+ * @subpackage estoque-cake.app
+ * @version 2.0
+ * @author Vitor Pacheco Costa <vitor-p.c@hotmail.com>
+ * @license http://www.opensource.org/licenses/mit-license.php The MIT License
+ */
 class GroupsController extends AppController {
-
-	var $name = 'Groups';
-
+/**
+ * Controller name
+ *
+ * @var string
+ * @access public
+ */
+	public $name = 'Groups';
+/**
+ * beforeFilter
+ * 
+ * Before execute controller actions
+ *
+ * @return void
+ * @access public
+ */
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->authError = 'Você não está autorizado a acessar essa área!';
 		//$this->Auth->allowedActions = array('*');
 	}
-
-	function index() {
+/**
+ * index
+ *
+ * @return void
+ * @access public
+ */
+	public function index() {
 		$this->Group->recursive = 0;
 		$this->set('groups', $this->paginate());
 	}
-
-	function view($id = null) {
+/**
+ * view
+ *
+ * @return void
+ * @access public
+ */
+	public function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'group'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('group', $this->Group->read(null, $id));
 	}
-
-	function add() {
+/**
+ * add
+ *
+ * @return void
+ * @access public
+ */
+	public function add() {
 		if (!empty($this->data)) {
 			$this->Group->create();
 			if ($this->Group->save($this->data)) {
@@ -33,8 +72,13 @@ class GroupsController extends AppController {
 			}
 		}
 	}
-
-	function edit($id = null) {
+/**
+ * edit
+ *
+ * @return void
+ * @access public
+ */
+	public function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'group'));
 			$this->redirect(array('action' => 'index'));
@@ -51,8 +95,13 @@ class GroupsController extends AppController {
 			$this->data = $this->Group->read(null, $id);
 		}
 	}
-
-	function delete($id = null) {
+/**
+ * delete
+ *
+ * @return void
+ * @access public
+ */
+	public function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'group'));
 			$this->redirect(array('action'=>'index'));

@@ -1,59 +1,56 @@
 <?php
+/**
+ * Application Controller
+ *
+ * This file is the base controller of all other controllers
+ *
+ * PHP version 5
+ *
+ * @category Controllers
+ * @package estoque-cake
+ * @subpackage estoque-cake.app
+ * @version 2.0
+ * @author Vitor Pacheco Costa <vitor-p.c@hotmail.com>
+ * @license http://www.opensource.org/licenses/mit-license.php The MIT License
+ */
 class AppController extends Controller {
-	
-	var $components = array('Acl', 'Auth', 'Session', 'DebugKit.Toolbar');
-	var $helpers = array('Html', 'Form', 'Time', 'Session', 'Ajax', 'Javascript');
-	
-	/*
-	 * Product Model
-	 * 
-	 * @var Product
-	 */
-	var $Product;
-	
-	/*
-	 * Sale Model
-	 * 
-	 * @var Sale
-	 */
-	var $Sale;
-	
-	/*
-	 * User Model
-	 * 
-	 * @var User
-	 */
-	var $User;
 
-	/*
-	 * ProductsSale Model
-	 *
-	 * @var ProductsSale
-	 */
-	var $ProductsSale;
-		
-	/*
-	 * AuthComponent
-	 * 
-	 * @var AuthComponent
-	 */
-	var $Auth;
-
-	/*
-	 * AclComponent
-	 *
-	 * @var AuthComponent
-	 */
-	var $Acl;
+/**
+ * Components
+ *
+ * @var array
+ * @access public
+ */
+	public $components = array(
+		'Acl',
+		'Auth',
+		'Session',
+		'DebugKit.Toolbar'
+	);
+/**
+ * Helpers
+ *
+ * @var array
+ * @access public
+ */
+	public $helpers = array(
+		'Html',
+		'Form',
+		'Time',
+		'Session',
+		'Ajax',
+		'Javascript'
+	);
 	
-	/*
-	 * SessionComponent
-	 * 
-	 * @var SessionComponent
-	 */
-	var $Session;
-	
-	function beforeFilter() {
+/**
+ * beforeFilter
+ *
+ * Before execute controller action
+ *
+ * @return void
+ * @access public
+ */
+	public function beforeFilter() {
 		$this->Auth->authorize = 'actions';
 		$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
 		$this->Auth->loginRedirect = array('controller' => 'pages', 'action' => 'display', 'home');

@@ -1,8 +1,40 @@
 <?php
+/**
+ * User Model
+ *
+ * PHP version 5
+ *
+ * @category Model
+ * @package estoque-cake
+ * @subpackage estoque-cake.app
+ * @version 2.0
+ * @author Vitor Pacheco Costa <vitor-p.c@hotmail.com>
+ * @license http://www.opensource.org/licenses/mit-license.php The MIT License
+ */
 class User extends AppModel {
-	var $name = 'User';
-	var $actsAs = array('Acl' => 'requester');
-	var $validate = array(
+/**
+ * Model name
+ *
+ * @var string
+ * @access public
+ */
+	public $name = 'User';
+/**
+ * Behaviors used by the Model
+ *
+ * @var array
+ * @access public
+ */
+	public $actsAs = array(
+		'Acl' => 'requester'
+	);
+/**
+ * Validation
+ *
+ * @var array
+ * @access public
+ */
+	public $validate = array(
 		'username' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -35,8 +67,13 @@ class User extends AppModel {
 		),
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
-	var $belongsTo = array(
+/**
+ * Model associations: belongsTo
+ *
+ * @var array
+ * @access public
+ */
+	public $belongsTo = array(
 		'Group' => array(
 			'className' => 'Group',
 			'foreignKey' => 'group_id',
@@ -45,8 +82,13 @@ class User extends AppModel {
 			'order' => ''
 		)
 	);
-
-	var $hasMany = array(
+/**
+ * Model associations: hasMany
+ *
+ * @var array
+ * @access public
+ */
+	public $hasMany = array(
 		'Product' => array(
 			'className' => 'Product',
 			'foreignKey' => 'user_id',
@@ -75,15 +117,15 @@ class User extends AppModel {
 		)
 	);
 
-	/*
-	 * Callback afterSave
-	 *
-	 * Atualiza o aro para o usuário
-	 *
-	 * @access public
-	 * @return void
-	 */
-	function afterSave($created) {
+/**
+ * Callback afterSave
+ *
+ * Atualiza o aro para o usuário
+ *
+ * @access public
+ * @return void
+ */
+	public function afterSave($created) {
 		$parent = $this->parentNode();
 		$parent = $this->node($parent);
 		$node = $this->node();
@@ -92,7 +134,7 @@ class User extends AppModel {
 		$this->Aro->save($aro);
 	}
 
-	function parentNode() {
+	public function parentNode() {
 		if (!$this->id && empty($this->data)) {
 			return null;
 		}

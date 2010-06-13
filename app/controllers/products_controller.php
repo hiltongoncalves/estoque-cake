@@ -1,33 +1,76 @@
 <?php
+/**
+ * Products Controller
+ *
+ * PHP version 5
+ *
+ * @category Controller
+ * @package estoque-cake
+ * @subpackage estoque-cake.app
+ * @version 2.0
+ * @author Vitor Pacheco Costa <vitor-p.c@hotmail.com>
+ * @license http://www.opensource.org/licenses/mit-license.php The MIT License
+ */
 class ProductsController extends AppController {
-
-	var $name = 'Products';
-	var $paginate = array(
+/**
+ * Controller name
+ *
+ * @var string
+ * @access public
+ */
+	public $name = 'Products';
+/**
+ * Paginate
+ *
+ * @var array
+ * @access public
+ */
+	public $paginate = array(
 		'limit' => 10,
 		'order' => array(
 			'Product.id' => 'asc'
 		)
 	);
-
+/**
+ * Before execute controller actions
+ *
+ * @return void
+ * @access public
+ */
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->authError = 'Você não está autorizado a acessar essa área!';
 	}
-
-	function index() {
+/**
+ * index
+ *
+ * @return void
+ * @access public
+ */
+	public function index() {
 		$this->Product->recursive = 0;
 		$this->set('products', $this->paginate());
 	}
-
-	function view($id = null) {
+/**
+ * view
+ *
+ * @return void
+ * @access public
+ */
+	public function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Produto'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('product', $this->Product->read(null, $id));
 	}
-
-	function add() {
+/**
+ * add
+ *
+ * @return void
+ * @access public
+ */
+	public function add() {
 		if (!empty($this->data)) {
 			$this->Product->create();
 			if ($this->Product->save($this->data)) {
@@ -41,8 +84,13 @@ class ProductsController extends AppController {
 		$sales = $this->Product->Sale->find('list');
 		$this->set(compact('users', 'sales'));
 	}
-
-	function edit($id = null) {
+/**
+ * edit
+ *
+ * @return void
+ * @access public
+ */
+	public function edit($id = null) {
 		$this->set('product', $this->Product->read(null, $id));
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Produto'));
@@ -63,8 +111,13 @@ class ProductsController extends AppController {
 		$sales = $this->Product->Sale->find('list');
 		$this->set(compact('users', 'sales'));
 	}
-
-	function delete($id = null) {
+/**
+ * delete
+ *
+ * @return void
+ * @access public
+ */
+	public function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Id inválido para o %s', true), 'produto'));
 			$this->redirect(array('action'=>'index'));

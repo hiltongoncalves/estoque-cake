@@ -1,26 +1,73 @@
 <?php
+/**
+ * Sales Controller
+ *
+ * PHP version 5
+ *
+ * @category Controller
+ * @package estoque-cake
+ * @subpackage estoque-cake.app
+ * @version 2.0
+ * @author Vitor Pacheco Costa <vitor-p.c@hotmail.com>
+ * @license http://www.opensource.org/licenses/mit-license.php The MIT License
+ */
 class SalesController extends AppController {
-
-	var $name = 'Sales';
-	var $uses = array('Sale', 'Product', 'ProductsSale');
-	var $paginate = array(
+/**
+ * Controller name
+ *
+ * @var string
+ * @access public
+ */
+	public $name = 'Sales';
+/**
+ * Models used by the Controller
+ *
+ * @var array
+ * @access public
+ */
+	public $uses = array(
+		'Sale',
+		'ProductsSale'
+	);
+/**
+ * Paginate
+ *
+ * @var array
+ * @access public
+ */
+	public $paginate = array(
 			'limit' => 10,
 			'order' => array(
 				'Sale.created' => 'desc'
 			)
 	);
-
+/**
+ * Before execute controller actions
+ *
+ * @return void
+ * @access public
+ */
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->authError = 'Você não está autorizado a acessar essa área!';
 	}
-
-	function index() {
+/**
+ * index
+ *
+ * @return void
+ * @access public
+ */
+	public function index() {
 		$this->Sale->recursive = 0;
 		$this->set('sales', $this->paginate());		
 	}
-
-	function view($id = null) {
+/**
+ * view
+ *
+ * @return void
+ * @access public
+ */
+	public function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('%s inválida', true), 'Venda'));
 			$this->redirect(array('action' => 'index'));
@@ -29,8 +76,13 @@ class SalesController extends AppController {
 		$sale = $this->Sale->read(null, $id);
 		$this->set(compact('sale', 'quantidades'));
 	}
-
-	function add() {
+/**
+ * add
+ *
+ * @return void
+ * @access public
+ */
+	public function add() {
 		if (!empty($this->data)) {
 			$this->Sale->create();
 			if ($this->data['Product']['Product']) {
@@ -49,8 +101,13 @@ class SalesController extends AppController {
 		$products = $this->Sale->Product->find('list');
 		$this->set(compact('users', 'products'));
 	}
-
-	function edit($id = null) {
+/**
+ * edit
+ *
+ * @return void
+ * @access public
+ */
+	public function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('%s inválida', true), 'Venda'));
 			$this->redirect(array('action' => 'index'));
@@ -71,8 +128,13 @@ class SalesController extends AppController {
 		$products = $this->Sale->Product->find('list');
 		$this->set(compact('users', 'products'));
 	}
-
-	function delete($id = null) {
+/**
+ * delete
+ *
+ * @return void
+ * @access public
+ */
+	public function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'sale'));
 			$this->redirect(array('action'=>'index'));
