@@ -20,6 +20,15 @@ class ProductsController extends AppController {
  */
 	public $name = 'Products';
 /**
+ * Components
+ *
+ * @var array
+ * @access public
+ */
+	public $components = array(
+		'Search.Prg',
+	);
+/**
  * Paginate
  *
  * @var array
@@ -32,6 +41,22 @@ class ProductsController extends AppController {
 		)
 	);
 /**
+ * presetVars for search plugin
+ *
+ * @var array
+ * @access public
+ */
+	public $presetVars = array(
+		array(
+			'field' => 'title',
+			'type' => 'value',
+		),
+		array(
+			'field' => 'range',
+			'type' => 'value',
+		),
+	);
+/**
  * Before execute controller actions
  *
  * @return void
@@ -40,6 +65,17 @@ class ProductsController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->authError = 'Você não está autorizado a acessar essa área!';
+	}
+/**
+ * find
+ *
+ * @return void
+ * @access public
+ */
+	public function find() {
+		$this->Prg->commonProcess();
+		$this->paginate['conditions'] = $this->Product->parseCriteria($this->passedArgs);
+		$this->set('products', $this->paginate());
 	}
 /**
  * index

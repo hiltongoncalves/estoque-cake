@@ -27,6 +27,13 @@ class Product extends AppModel {
  */
 	public $displayField = 'description';
 /**
+ * Behaviors used by the Model
+ * 
+ * @var string
+ * @access public
+ */
+	public $actsAs = array('Search.Searchable');
+/**
  * Validation
  *
  * @var array
@@ -93,6 +100,30 @@ class Product extends AppModel {
 			'deleteQuery' => '',
 			'insertQuery' => ''
 		)
+	);
+/**
+ * filterArgs for search plugin
+ *
+ * @var array
+ * @access public
+ */
+	public $filterArgs = array(
+		array(
+			'name' => 'search',
+			'type' => 'like',
+			'field' => 'Product.description',
+		),
+		array(
+			'name' => 'range',
+			'type' => 'expression',
+			'method' => 'makeRangeCondition',
+			'field' => 'Product.amount BETWEEN ? AND ?',
+		),
+		array(
+			'name' => 'username',
+			'type' => 'like',
+			'field' => 'User.username',
+		),
 	);
 
 }

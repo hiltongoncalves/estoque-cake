@@ -1,5 +1,5 @@
 <?php
-/* ProductsSale Fixture generated on: 2010-05-27 18:05:16 : 1274994616 */
+/* ProductsSale Fixture generated on: 2010-06-13 15:06:02 : 1276452902 */
 class ProductsSaleFixture extends CakeTestFixture {
 	var $name = 'ProductsSale';
 
@@ -15,51 +15,9 @@ class ProductsSaleFixture extends CakeTestFixture {
 	var $records = array(
 		array(
 			'id' => 1,
-			'product_id' => 2,
+			'product_id' => 1,
 			'sale_id' => 1,
-			'amount' => 5
-		),
-		array(
-			'id' => 2,
-			'product_id' => 3,
-			'sale_id' => 2,
-			'amount' => 5
-		),
-		array(
-			'id' => 3,
-			'product_id' => 4,
-			'sale_id' => 2,
-			'amount' => 5
-		),
-		array(
-			'id' => 4,
-			'product_id' => 1,
-			'sale_id' => 2,
-			'amount' => 5
-		),
-		array(
-			'id' => 5,
-			'product_id' => 2,
-			'sale_id' => 3,
-			'amount' => 5
-		),
-		array(
-			'id' => 6,
-			'product_id' => 3,
-			'sale_id' => 4,
-			'amount' => 5
-		),
-		array(
-			'id' => 7,
-			'product_id' => 4,
-			'sale_id' => 5,
-			'amount' => 5
-		),
-		array(
-			'id' => 8,
-			'product_id' => 1,
-			'sale_id' => 5,
-			'amount' => 5
+			'amount' => 1
 		),
 	);
 }

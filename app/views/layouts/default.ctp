@@ -27,7 +27,7 @@ echo $javascript->link(array('prototype'));
 	<div id="header"><div id="header-content">	
 		
 		<h1 id="logo">
-		<a title="">Estoque<span class="gray">LOJA X</span></a></h1>
+			<a title="">Estoque<span class="gray"><?php echo Configure::read('Company.name');?></span></a></h1>
 		<h2 id="slogan">
 		<?php
 		if (($this->Session->read('Auth'))) {

@@ -1,5 +1,5 @@
 <?php
-/* Group Fixture generated on: 2010-06-11 16:06:15 : 1276282935 */
+/* Group Fixture generated on: 2010-06-13 15:06:02 : 1276452902 */
 class GroupFixture extends CakeTestFixture {
 	var $name = 'Group';
 
@@ -16,8 +16,8 @@ class GroupFixture extends CakeTestFixture {
 		array(
 			'id' => 1,
 			'name' => 'Lorem ipsum dolor sit amet',
-			'created' => '2010-06-11 16:02:15',
-			'modified' => '2010-06-11 16:02:15'
+			'created' => '2010-06-13 15:15:02',
+			'modified' => '2010-06-13 15:15:02'
 		),
 	);
 }

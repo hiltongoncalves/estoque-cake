@@ -49,4 +49,5 @@
  *
  */
 	setlocale(LC_TIME,"br_BR.UTF-8");
+	Configure::write('Company.name', 'Company');
 ?>

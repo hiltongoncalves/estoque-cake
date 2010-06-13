@@ -1,0 +1,24 @@
+*SCE (Sistema de Controle de Estoque) instruções de instalação/configuração*
+
+
+O sistema tem enfoque no controle de estoque de uma loja que possui necessidade de gerir a quantidade de produtos e suas saídas, além de registrar os funcionários que efetuaram a operação e exibir relatórios de entradas/saídas.
+
+O SCE é especifico para a finalidade que se propõe, não abrangendo transações financeiras.
+
+O sistema está sendo desenvolvido em linguagem "PHP":http://php.net/index.php com o framework "CakePHP":http://www.cakephp.org utilizando como base de armazenamento de dados o SGBD (Sistema de Gerenciamento de Banco de Dados) "MySQL":http://www.mysql.com.
+
+
+*Download*
+* O SCE está disponível para donwload em http://github.com/vitorpc/estoque-cake.
+
+
+
+*Instalação / Configuração*
+
+# Pré-requisitos: Para instalar o SCE é necessário um Servidor HTTP, Apache com  o @mod_rewrite@ habilitado é preferido, o PHP instalado e configurado, e o SGBD MySQL.
+# Descompactação do arquivo: Após descompactar o arquivo colocar a pasta no diretório root do servidor HTTP.
+# Configurações da Base de dados: É necessário alterar o arquivo @SCE_ROOT/app/config/database.php@, com as configurações da base de dados.
+# Criação de Tabelas e dados iniciais no banco: Executar o script sql @SCE_ROOT/app/config/schema/dumpfile.sql@.
+# Permissões: Dar permissao total de escrita e leitura à pasta @SCE_ROOT/app/tmp@.
+# Nome da empresa: Alterar "LOJA X" para o nome desejado no arquivo @SCE_ROOT/app/views/layouts/default.ctp@ na linha 30.
+# Testando a aplicação: Para acessar basta ir no navegador e digitar @http://localhost/SCE_ROOT@. O usuário inicial é @admin@ e a senha @admin@.

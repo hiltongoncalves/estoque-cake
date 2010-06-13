@@ -4,10 +4,11 @@
 	
 		<h1 id="clear"><?php __('Actions'); ?></h1>
 		<ul class="sidemenu">
-			<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Produtos', true)), array('action' => 'edit', $product['Product']['id'])); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Produto', true)), array('action' => 'delete', $product['Product']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $product['Product']['id'])); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Produto', true)), array('action' => 'add')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Produtos', true)), array('action' => 'index')); ?> </li>
+			<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Produtos', true)), array('action' => 'edit', $product['Product']['id'])); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Produto', true)), array('action' => 'delete', $product['Product']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $product['Product']['id'])); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Produto', true)), array('action' => 'add')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Produtos', true)), array('action' => 'index')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('Pesquisar %s', true), __('Produtos', true)), array('action' => 'find')); ?></li>
 		</ul>
 	
 	</div>
