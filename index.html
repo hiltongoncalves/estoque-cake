@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>vitorpc/estoque-cake @ GitHub</title>
+	
+	<style type="text/css">
+		body {
+  		margin-top: 1.0em;
+  		background-color: #59d548;
+		  font-family: "Helvetica,Arial,FreeSans";
+  		color: #ffffff;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+		h1 { font-size: 3.8em; color: #a62ab7; margin-bottom: 3px; }
+		h1 .small { font-size: 0.4em; }
+		h1 a { text-decoration: none }
+		h2 { font-size: 1.5em; color: #a62ab7; }
+    h3 { text-align: center; color: #a62ab7; }
+    a { color: #a62ab7; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+		pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+	</style>
+	
+</head>
+
+<body>
+  <a href="http://github.com/vitorpc/estoque-cake"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+    <div class="download">
+      <a href="http://github.com/vitorpc/estoque-cake/zipball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+      <a href="http://github.com/vitorpc/estoque-cake/tarball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+    <h1><a href="http://github.com/vitorpc/estoque-cake">SCE</a>
+      <span class="small">by <a href="http://github.com/vitorpc">vitorpc</a></span></h1>
+
+    <div class="description">
+      Sistema de Controle de Estoque
+    </div>
+
+    <p>O sistema tem enfoque no controle de estoque de uma loja que possui necessidade de gerir a quantidade de produtos e suas saídas, além de registrar os funcionários que efetuaram a operação e exibir relatórios de entradas/saídas.
+
+O SCE é especifico para a finalidade que se propõe, não abrangendo transações financeiras.
+
+O sistema está sendo desenvolvido em linguagem PHP com o framework CakePHP utilizando como base de armazenamento de dados o SGBD (Sistema de Gerenciamento de Banco de Dados) MySQL.</p><h2>Dependencies</h2>
+<p>Pré-requisitos: Para instalar o SCE é necessário um Servidor HTTP, Apache com o mod_rewrite  habilitado é preferido, o PHP instalado e configurado, e o SGBD MySQL.</p>
+<h2>Install</h2>
+<p>1. Descompactação do arquivo: Após descompactar o arquivo colocar a pasta no diretório root do servidor HTTP.
+2. Configurações da Base de dados: É necessário alterar o arquivo SCE_ROOT/app/config/database.php, com as configurações da base de dados.
+3. Criação de Tabelas e dados iniciais no banco: Executar o script sql SCE_ROOT/app/config/schema/dumpfile.sql.
+4. Permissões: Dar permissao total de escrita e leitura à pasta SCE_ROOT/app/tmp.
+5. Nome da empresa: Alterar “LOJA X” para o nome desejado no arquivo SCE_ROOT/app/views/layouts/default.ctp na linha 30.
+6. Testando a aplicação: Para acessar basta ir no navegador e digitar http://localhost/SCE_ROOT. O usuário inicial é admin e a senha admin.
+</p>
+<h2>License</h2>
+<p>http://www.opensource.org/licenses/mit-license.php The MIT License</p>
+<h2>Authors</h2>
+<p>Vitor Pacheco (vitor-p.c@hotmail.com)<br/><br/>      </p>
+<h2>Contact</h2>
+<p>Vitor Pacheco (vitor-p.c@hotmail.com)<br/>      </p>
+
+
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="http://github.com/vitorpc/estoque-cake/zipball/master">zip</a> or
+      <a href="http://github.com/vitorpc/estoque-cake/tarball/master">tar</a> formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/vitorpc/estoque-cake</pre>
+    </p>
+
+    <div class="footer">
+      get the source code on GitHub : <a href="http://github.com/vitorpc/estoque-cake">vitorpc/estoque-cake</a>
+    </div>
+
+  </div>
+
+  
+</body>
+</html>
