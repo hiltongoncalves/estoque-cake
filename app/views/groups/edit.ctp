@@ -2,11 +2,11 @@
 
 	<div class="sidebox">
 
-		<h1 id="clear"><?php __('Ações'); ?></h1>
+		<h1 id="clear"><?php __('Actions'); ?></h1>
 		<ul class="sidemenu">
 			<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('Group.id')), null, sprintf(__('Tem certeza que deseja excluir # %s?', true), $this->Form->value('Group.id'))); ?></li>
-			<li><?php echo $this->Html->link(sprintf(__('Novo %s', true), __('Grupo', true)), array('action' => 'add'));?></li>
-			<li><?php echo $this->Html->link(sprintf(__('Listar %s', true), __('Grupos', true)), array('action' => 'index'));?></li>
+			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Group', true)), array('action' => 'add'));?></li>
+			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Groups', true)), array('action' => 'index'));?></li>
 		</ul>
 
 	</div>
@@ -27,6 +27,6 @@
 			echo $this->Form->input('name');
 		?>
 	<br />
-	<?php echo $this->Form->end(__('Submit', true));?>
+	<?php echo $this->Form->end(__('Edit', true));?>
 	</div>
 </div>

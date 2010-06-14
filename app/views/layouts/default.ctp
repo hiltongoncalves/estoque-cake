@@ -38,16 +38,16 @@ echo $javascript->link(array('prototype'));
 		
 		<!-- Menu Tabs -->
 		<ul>
-			<li><?php echo $this->Html->link('Usuários', array('controller' => 'users', 'action' => 'index')); ?></li>
-			<li><?php echo $this->Html->link('Grupos', array('controller' => 'groups', 'action' => 'index')); ?></li>
-			<li><?php echo $this->Html->link('Produtos', array('controller' => 'products', 'action' => 'index')); ?></li>
-			<li><?php echo $this->Html->link('Vendas', array('controller' => 'sales', 'action' => 'index')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('Users', true)), array('controller' => 'users', 'action' => 'index')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('Groups', true)), array('controller' => 'groups', 'action' => 'index')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('Products', true)), array('controller' => 'products', 'action' => 'index')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('Sales', true)), array('controller' => 'sales', 'action' => 'index')); ?></li>
 			<li>
 				<?php
 				if (!$this->Session->read('Auth')) {
-					echo $this->Html->link('Entrar', array('controller' => 'users', 'action' => 'login'), array('id' => 'current'));
+					echo $this->Html->link(sprintf(__('Login', true)), array('controller' => 'users', 'action' => 'login'), array('id' => 'current'));
 				} else {
-					echo $this->Html->link('Sair', array('controller' => 'users', 'action' => 'logout'), array('id' => 'current'));
+					echo $this->Html->link(sprintf(__('Logout', true)), array('controller' => 'users', 'action' => 'logout'), array('id' => 'current'));
 				}
 				?>
 			</li>

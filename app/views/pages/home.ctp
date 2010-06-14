@@ -1,12 +1,12 @@
 <div id="sidebar">
 
 	<div class="sidebox">
-		<h1 class="clear"><?php __('Módulos'); ?></h1>
+		<h1 class="clear"><?php __('Modules'); ?></h1>
 		<ul class="sidemenu">
-				<li><?php echo $this->Html->link('Usuários', array('controller' => 'users', 'action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link('Grupos', array('controller' => 'groups', 'action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link('Produtos', array('controller' => 'products', 'action' => 'index')); ?></li>
-				<li><?php echo $this->Html->link('Vendas', array('controller' => 'sales', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Users', array('controller' => 'users', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Groups', array('controller' => 'groups', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'index')); ?></li>
+				<li><?php echo $this->Html->link('Sales', array('controller' => 'sales', 'action' => 'index')); ?></li>
 		</ul>
 	
 	</div>
@@ -20,10 +20,8 @@
 	?>
 	<div class="post" align="center">
 		<blockquote>
-			<p>Bem vindo ao sistema administrativo do contole de estoque.
-			<br />
-			Selecione a opção desejada no menu.
-			</p>
+			<p>Welcome to the administrative system of inventory control.</p>
+			<p>Select the desired option from the menu.</p>
 		</blockquote>
 	</div>
 	

@@ -27,7 +27,7 @@ class UsersController extends AppController {
  */
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->authError = 'Você não está autorizado a acessar essa área!';
+		$this->Auth->authError = sprintf(__('You are not authorized to access this area!', true));
 		//$this->Auth->allowedActions = array('*');
 	}
 /**
@@ -48,7 +48,7 @@ class UsersController extends AppController {
  */
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('user', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('user', $this->User->read(null, $id));
@@ -63,10 +63,10 @@ class UsersController extends AppController {
 		if (!empty($this->data)) {
 			$this->User->create();
 			if ($this->User->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('user', true)));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'user'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('user', true)));
 			}
 		}
 		$groups = $this->User->Group->find('list');
@@ -80,15 +80,15 @@ class UsersController extends AppController {
  */
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'user'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('user', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->User->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'user'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('user', true)));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'user'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('user', true)));
 			}
 		}
 		if (empty($this->data)) {
@@ -105,14 +105,14 @@ class UsersController extends AppController {
  */
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'user'));
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('user', true)));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->User->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deleted', true), 'User'));
+			$this->Session->setFlash(sprintf(__('%s deleted', true), __('User', true)));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'User'));
+		$this->Session->setFlash(sprintf(__('%s was not deleted', true), __('User', true)));
 		$this->redirect(array('action' => 'index'));
 	}
 /**

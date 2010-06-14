@@ -1,9 +1,9 @@
 <?php
-/* Product Fixture generated on: 2010-06-13 15:06:02 : 1276452902 */
+/* Product Fixture generated on: 2010-06-14 11:06:55 : 1276524415 */
 class ProductFixture extends CakeTestFixture {
-	var $name = 'Product';
+	public $name = 'Product';
 
-	var $fields = array(
+	public $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
 		'description' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 45),
 		'price' => array('type' => 'float', 'null' => true, 'default' => NULL, 'length' => '12,2'),
@@ -13,13 +13,34 @@ class ProductFixture extends CakeTestFixture {
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
 
-	var $records = array(
+	public $records = array(
 		array(
 			'id' => 1,
-			'description' => 'Lorem ipsum dolor sit amet',
-			'price' => 1,
+			'description' => 'CAMERA DIGITAL',
+			'price' => 199.50,
 			'user_id' => 1,
-			'amount' => 1
+			'amount' => 9,
+		),
+		array(
+			'id' => 2,
+			'description' => 'FILMADORA',
+			'price' => 999.50,
+			'user_id' => 1,
+			'amount' => 60,
+		),
+		array(
+			'id' => 3,
+			'description' => 'NOTEBOOK',
+			'price' => 1999.50,
+			'user_id' => 2,
+			'amount' => 70,
+		),
+		array(
+			'id' => 4,
+			'description' => 'MONITOR LCD 15',
+			'price' => 399.50,
+			'user_id' => 1,
+			'amount' => 40,
 		),
 	);
 }

@@ -1,9 +1,9 @@
 <?php
-/* User Fixture generated on: 2010-06-13 15:06:02 : 1276452902 */
+/* User Fixture generated on: 2010-06-14 11:06:55 : 1276524415 */
 class UserFixture extends CakeTestFixture {
-	var $name = 'User';
+	public $name = 'User';
 
-	var $fields = array(
+	public $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
 		'username' => array('type' => 'string', 'null' => false, 'default' => NULL, 'key' => 'unique'),
 		'password' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 40),
@@ -14,14 +14,30 @@ class UserFixture extends CakeTestFixture {
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'MyISAM')
 	);
 
-	var $records = array(
+	public $records = array(
 		array(
 			'id' => 1,
-			'username' => 'Lorem ipsum dolor sit amet',
-			'password' => 'Lorem ipsum dolor sit amet',
+			'username' => 'admin',
+			'password' => 'd01e94c2b5e45b246769b5659a9d4a17f1072c63',
 			'group_id' => 1,
-			'created' => '2010-06-13 15:15:02',
-			'modified' => '2010-06-13 15:15:02'
+			'created' => '2010-06-12 14:08:12',
+			'modified' => '2010-06-12 14:08:12',
+		),
+		array(
+			'id' => 2,
+			'username' => 'gerente',
+			'password' => 'e4a6f8abea229a9b16ba301fa67641a1a1d2c01a',
+			'group_id' => 2,
+			'created' => '2010-06-12 14:08:22',
+			'modified' => '2010-06-12 14:08:22',
+		),
+		array(
+			'id' => 3,
+			'username' => 'funcionario',
+			'password' => 'e4a6f8abea229a9b16ba301fa67641a1a1d2c01a',
+			'group_id' => 3,
+			'created' => '2010-06-12 14:08:31',
+			'modified' => '2010-06-12 14:08:31',
 		),
 	);
 }

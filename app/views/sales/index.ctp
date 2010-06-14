@@ -3,8 +3,8 @@
 	<div class="sidebox">
 		<h1 class="clear"><?php __('Actions'); ?></h1>
 		<ul class="sidemenu">
-			<li><?php echo $this->Html->link(sprintf(__('Nova %s', true), __('Venda', true)), array('action' => 'add')); ?></li>
-			<li><?php echo $this->Html->link(sprintf(__('Listar %s', true), __('Vendas', true)), array('action' => 'index')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Sale', true)), array('action' => 'add')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Sales', true)), array('action' => 'index')); ?></li>
 		</ul>
 
 	</div>
@@ -18,11 +18,11 @@
 	?>
 	<div class="post">
 	
-		<h1><?php __('Vendas');?></h1>
+		<h1><?php __('Sales');?></h1>
 		<table cellpadding="0" cellspacing="0">
 		<tr>
-				<th><?php echo $this->Paginator->sort('Usuário', 'user_id');?></th>
-				<th><?php echo $this->Paginator->sort('Criado em', 'created');?></th>
+				<th><?php echo $this->Paginator->sort(sprintf(__('Username', true)), 'user_id');?></th>
+				<th><?php echo $this->Paginator->sort(sprintf(__('Created', true)), 'created');?></th>
 				<th class="actions"><?php __('Actions');?></th>
 		</tr>
 		<?php

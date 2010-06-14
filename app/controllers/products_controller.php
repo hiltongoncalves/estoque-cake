@@ -45,6 +45,7 @@ class ProductsController extends AppController {
  *
  * @var array
  * @access public
+ * @todo fazer reconhecer um field range
  */
 	public $presetVars = array(
 		array(
@@ -64,7 +65,7 @@ class ProductsController extends AppController {
  */
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->authError = 'Você não está autorizado a acessar essa área!';
+		$this->Auth->authError = sprintf(__('You are not authorized to access this area!', true));
 	}
 /**
  * find
@@ -95,7 +96,7 @@ class ProductsController extends AppController {
  */
 	public function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Produto'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Product', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('product', $this->Product->read(null, $id));
@@ -110,10 +111,10 @@ class ProductsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Product->create();
 			if ($this->Product->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('O %s foi salvo', true), 'produto'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('product', true)));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('O %s não pôde ser salvo. Por favor, tente novamente.', true), 'produto'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('product', true)));
 			}
 		}
 		$users = $this->Product->User->find('list');
@@ -129,15 +130,15 @@ class ProductsController extends AppController {
 	public function edit($id = null) {
 		$this->set('product', $this->Product->read(null, $id));
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('%s inválido', true), 'Produto'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Product', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Product->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('O %s foi salvo', true), 'produto'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('product', true)));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('O %s não pôde ser salvo. Por favor, tente novamente.', true), 'produto'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('product', true)));
 			}
 		}
 		if (empty($this->data)) {
@@ -155,14 +156,14 @@ class ProductsController extends AppController {
  */
 	public function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Id inválido para o %s', true), 'produto'));
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('product', true)));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Product->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deletado', true), 'Produto'));
+			$this->Session->setFlash(sprintf(__('%s deleted', true), __('Product', true)));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(sprintf(__('%s não foi deletado', true), 'Produto'));
+		$this->Session->setFlash(sprintf(__('%s was not deleted', true), __('product', true)));
 		$this->redirect(array('action' => 'index'));
 	}
 }

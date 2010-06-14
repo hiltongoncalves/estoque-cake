@@ -1,11 +1,11 @@
 <div id="sidebar">
 
 	<div class="sidebox">
-		<h1 class="clear"><?php __('Ações'); ?></h1>
+		<h1 class="clear"><?php __('Actions'); ?></h1>
 		<ul class="sidemenu">
-			<li><?php echo $this->Html->link(sprintf(__('Novo %s', true), __('Produto', true)), array('action' => 'add')); ?></li>
-			<li><?php echo $this->Html->link(sprintf(__('Listar %s', true), __('Produtos', true)), array('action' => 'index')); ?></li>
-			<li><?php echo $this->Html->link(sprintf(__('Pesquisar %s', true), __('Produtos', true)), array('action' => 'find')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Product', true)), array('action' => 'add')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Products', true)), array('action' => 'index')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('Find %s', true), __('Products', true)), array('action' => 'find')); ?></li>
 		</ul>
 
 	</div>
@@ -23,13 +23,13 @@
 			'url' => array_merge(array('action' => 'find'), $this->params['pass'])
 			)); ?>
 		<?php
-			echo $this->Form->input('username', array('div' => false, 'label' => 'Usuário'));
-			echo $this->Form->input(__('search', true), array('div' => false, 'label' => 'Descrição'));
+			echo $this->Form->input('username', array('div' => false));
+			echo $this->Form->input(__('search', true), array('div' => false));
 			// echo $this->Form->input('range', array('div' => false));
 		?>
 		<br />
 		<br />
-		<?php echo $this->Form->end(__('Pesquisar', true), array('div' => false)); ?>
+		<?php echo $this->Form->end(__('Find', true), array('div' => false)); ?>
 	</div>
 	<br />
 	<div class="post">
@@ -37,10 +37,10 @@
 		<h1><?php __('Produtos');?></h1>
 		<table cellpadding="0" cellspacing="0">
 		<tr>
-				<th><?php echo $this->Paginator->sort('Descrição', 'description');?></th>
-				<th><?php echo $this->Paginator->sort('Preço', 'price');?></th>
-				<th><?php echo $this->Paginator->sort('Quantidade', 'amount');?></th>
-				<th class="actions"><?php __('Ações');?></th>
+				<th><?php echo $this->Paginator->sort('description');?></th>
+				<th><?php echo $this->Paginator->sort('price');?></th>
+				<th><?php echo $this->Paginator->sort('amount');?></th>
+				<th class="actions"><?php __('Actions');?></th>
 		</tr>
 		<?php
 		$i = 0;
@@ -60,7 +60,7 @@
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('action' => 'view', $product['Product']['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $product['Product']['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $product['Product']['id']), null, sprintf(__('Tem certeza de que deseja excluir # %s?', true), $product['Product']['description'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $product['Product']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $product['Product']['description'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>

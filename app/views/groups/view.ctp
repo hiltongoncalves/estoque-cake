@@ -4,10 +4,10 @@
 
 		<h1 id="clear"><?php __('Actions'); ?></h1>
 		<ul class="sidemenu">
-			<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Grupo', true)), array('action' => 'edit', $group['Group']['id'])); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Grupo', true)), array('action' => 'delete', $group['Group']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $group['Group']['id'])); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Grupo', true)), array('action' => 'add')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Grupos', true)), array('action' => 'index')); ?> </li>
+			<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Group', true)), array('action' => 'edit', $group['Group']['id'])); ?> </li>
+			<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Group', true)), array('action' => 'delete', $group['Group']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $group['Group']['id'])); ?> </li>
+			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('Group', true)), array('action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Groups', true)), array('action' => 'index')); ?> </li>
 		</ul>
 
 	</div>
@@ -21,7 +21,7 @@
 	?>
 	
 	<div class="post">
-	<h1><?php  __('Grupo');?></h1>
+	<h1><?php  __('Group');?></h1>
 	<br />
 		<dl><?php $i = 0; $class = ' class="altrow"';?>
 			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>
@@ -48,7 +48,7 @@
 	</div>
 	<br />
 	<div class="post">
-		<h1><?php printf(__('Usuários %s', true), __('Relacionados', true));?></h1>
+		<h1><?php printf(__('Related %s', true), __('Users', true));?></h1>
 		<?php if (!empty($group['User'])):?>
 		<table cellpadding = "0" cellspacing = "0">
 		<tr>

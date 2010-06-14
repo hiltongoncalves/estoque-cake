@@ -4,10 +4,10 @@
 
 		<h1 id="clear"><?php __('Actions'); ?></h1>
 		<ul class="sidemenu">
-			<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('Usuário', true)), array('action' => 'edit', $user['User']['id'])); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('Usuário', true)), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $user['User']['id'])); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('Novo %s', true), __('Usuário', true)), array('action' => 'add')); ?> </li>
-			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Usuários', true)), array('action' => 'index')); ?> </li>
+			<li><?php echo $this->Html->link(sprintf(__('Edit %s', true), __('User', true)), array('action' => 'edit', $user['User']['id'])); ?> </li>
+			<li><?php echo $this->Html->link(sprintf(__('Delete %s', true), __('User', true)), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $user['User']['id'])); ?> </li>
+			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('User', true)), array('action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Users', true)), array('action' => 'index')); ?> </li>
 		</ul>
 
 	</div>
@@ -16,7 +16,7 @@
 
 <div id="main">
 	<div class="post">
-	<h1><?php  __('Usuário');?></h1>
+	<h1><?php  __('User');?></h1>
 	<br />
 		<dl><?php $i = 0; $class = ' class="altrow"';?>
 			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Id'); ?></dt>

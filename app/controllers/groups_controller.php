@@ -29,7 +29,7 @@ class GroupsController extends AppController {
  */
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->authError = 'Você não está autorizado a acessar essa área!';
+		$this->Auth->authError = sprintf(__('You are not authorized to access this area!', true));
 		//$this->Auth->allowedActions = array('*');
 	}
 /**
@@ -50,7 +50,7 @@ class GroupsController extends AppController {
  */
 	public function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'group'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true),__('group', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('group', $this->Group->read(null, $id));
@@ -65,10 +65,10 @@ class GroupsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Group->create();
 			if ($this->Group->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'group'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true),__('group', true)));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'group'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true),__('group', true)));
 			}
 		}
 	}
@@ -80,15 +80,15 @@ class GroupsController extends AppController {
  */
 	public function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('Invalid %s', true), 'group'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true),__('group', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Group->save($this->data)) {
-				$this->Session->setFlash(sprintf(__('The %s has been saved', true), 'group'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true),__('group', true)));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'group'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true),__('group', true)));
 			}
 		}
 		if (empty($this->data)) {
@@ -103,14 +103,14 @@ class GroupsController extends AppController {
  */
 	public function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'group'));
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('group', true)));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Group->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deleted', true), 'Group'));
+			$this->Session->setFlash(sprintf(__('%s deleted', true), __('Group', true)));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Group'));
+		$this->Session->setFlash(sprintf(__('%s was not deleted', true), __('Group', true)));
 		$this->redirect(array('action' => 'index'));
 	}
 }

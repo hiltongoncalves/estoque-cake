@@ -49,7 +49,7 @@ class SalesController extends AppController {
  */
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->authError = 'Você não está autorizado a acessar essa área!';
+		$this->Auth->authError = sprintf(__('You are not authorized to access this area!', true));
 	}
 /**
  * index
@@ -69,7 +69,7 @@ class SalesController extends AppController {
  */
 	public function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('%s inválida', true), 'Venda'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('Sale', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		$quantidades = $this->ProductsSale->find('all', array('conditions' => array('sale_id' => $id)));
@@ -88,13 +88,13 @@ class SalesController extends AppController {
 			if ($this->data['Product']['Product']) {
 				if ($this->Sale->save($this->data)) {
 					$idVenda = $this->Sale->id;
-					$this->Session->setFlash(sprintf(__('A %s foi confirmada', true), 'venda'));
+					$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('sale', true)));
 					$this->redirect(array('action' => 'view', $idVenda));
 				} else {
-					$this->Session->setFlash(sprintf(__('A %s não pôde ser salva. Por favor, tente novamente.', true), 'venda'));
+					$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('sale', true)));
 				}
 			} else {
-				$this->Session->setFlash(sprintf(__('A %s não pôde ser salva. Por favor, tente novamente.', true), 'venda'));
+				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('sale', true)));
 			}
 		}
 		$users = $this->Sale->User->find('list');
@@ -109,16 +109,16 @@ class SalesController extends AppController {
  */
 	public function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(sprintf(__('%s inválida', true), 'Venda'));
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('sale', true)));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Sale->save($this->data)) {
 				$idVenda = $this->Sale->id;
-				$this->Session->setFlash(sprintf(__('A %s foi salva', true), 'venda'));
+				$this->Session->setFlash(sprintf(__('The %s has been saved', true), __('sale', true)));
 				$this->redirect(array('action' => 'view', $idVenda));
 				} else {
-					$this->Session->setFlash(sprintf(__('A %s não pôde ser salva. Por favor, tente novamente.', true), 'venda'));
+					$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('sale', true)));
 				}
 			}
 		if (empty($this->data)) {
@@ -136,14 +136,14 @@ class SalesController extends AppController {
  */
 	public function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'sale'));
+			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), __('sale', true)));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Sale->delete($id)) {
-			$this->Session->setFlash(sprintf(__('%s deletada', true), 'Venda'));
+			$this->Session->setFlash(sprintf(__('%s deleted', true), __('Sale', true)));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(sprintf(__('%s não foi deletada', true), 'Venda'));
+		$this->Session->setFlash(sprintf(__('%s was not deleted', true), __('Sale', true)));
 		$this->redirect(array('action' => 'index'));
 	}
 }

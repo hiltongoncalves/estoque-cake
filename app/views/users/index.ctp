@@ -3,8 +3,8 @@
 	<div class="sidebox">
 		<h1 class="clear"><?php __('Actions'); ?></h1>
 		<ul class="sidemenu">
-			<li><?php echo $this->Html->link(sprintf(__('Novo %s', true), __('Usuário', true)), array('controller' => 'users', 'action' => 'add')); ?></li>
-			<li><?php echo $this->Html->link(sprintf(__('Listar %s', true), __('Usuários', true)), array('controller' => 'users', 'action' => 'index')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('New %s', true), __('User', true)), array('controller' => 'users', 'action' => 'add')); ?></li>
+			<li><?php echo $this->Html->link(sprintf(__('List %s', true), __('Users', true)), array('controller' => 'users', 'action' => 'index')); ?></li>
 		</ul>
 
 	</div>
@@ -18,14 +18,14 @@
 	?>
 
 	<div class="post">
-		<h1><?php __('Usuários');?></h1>
+		<h1><?php __('Users');?></h1>
 		<table cellpadding="0" cellspacing="0">
 		<tr>
-				<th><?php echo $this->Paginator->sort('id');?></th>
-				<th><?php echo $this->Paginator->sort('username');?></th>
-				<th><?php echo $this->Paginator->sort('group_id');?></th>
-				<th><?php echo $this->Paginator->sort('created');?></th>
-				<th><?php echo $this->Paginator->sort('modified');?></th>
+				<th><?php echo $this->Paginator->sort(sprintf(__('ID', true)), 'id');?></th>
+				<th><?php echo $this->Paginator->sort(sprintf(__('Username', true)), 'username');?></th>
+				<th><?php echo $this->Paginator->sort(sprintf(__('Group', true)), 'group_id');?></th>
+				<th><?php echo $this->Paginator->sort(sprintf(__('Created', true)), 'created');?></th>
+				<th><?php echo $this->Paginator->sort(sprintf(__('Modified', true)), 'modified');?></th>
 				<th class="actions"><?php __('Actions');?></th>
 		</tr>
 		<?php

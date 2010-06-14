@@ -294,5 +294,5 @@
  *	));
  *
  */
-	Configure::write('Config.language', 'pt-br');
+	Configure::write('Config.language', 'eng');
 ?>
