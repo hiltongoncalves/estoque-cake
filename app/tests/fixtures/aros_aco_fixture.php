@@ -1,9 +1,9 @@
 <?php
-/* ArosAco Fixture generated on: 2010-06-14 11:06:55 : 1276524415 */
+/* ArosAco Fixture generated on: 2010-06-14 18:06:54 : 1276551114 */
 class ArosAcoFixture extends CakeTestFixture {
-	public $name = 'ArosAco';
+	var $name = 'ArosAco';
 
-	public $fields = array(
+	var $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
 		'aro_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'index'),
 		'aco_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
@@ -15,7 +15,7 @@ class ArosAcoFixture extends CakeTestFixture {
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'MyISAM')
 	);
 
-	public $records = array(
+	var $records = array(
 		array(
 			'id' => 1,
 			'aro_id' => 1,
@@ -23,7 +23,7 @@ class ArosAcoFixture extends CakeTestFixture {
 			'_create' => '1',
 			'_read' => '1',
 			'_update' => '1',
-			'_delete' => '1',
+			'_delete' => '1'
 		),
 		array(
 			'id' => 2,
@@ -32,7 +32,7 @@ class ArosAcoFixture extends CakeTestFixture {
 			'_create' => '-1',
 			'_read' => '-1',
 			'_update' => '-1',
-			'_delete' => '-1',
+			'_delete' => '-1'
 		),
 		array(
 			'id' => 3,
@@ -41,7 +41,7 @@ class ArosAcoFixture extends CakeTestFixture {
 			'_create' => '1',
 			'_read' => '1',
 			'_update' => '1',
-			'_delete' => '1',
+			'_delete' => '1'
 		),
 		array(
 			'id' => 4,
@@ -50,7 +50,7 @@ class ArosAcoFixture extends CakeTestFixture {
 			'_create' => '1',
 			'_read' => '1',
 			'_update' => '1',
-			'_delete' => '1',
+			'_delete' => '1'
 		),
 		array(
 			'id' => 5,
@@ -59,7 +59,7 @@ class ArosAcoFixture extends CakeTestFixture {
 			'_create' => '-1',
 			'_read' => '-1',
 			'_update' => '-1',
-			'_delete' => '-1',
+			'_delete' => '-1'
 		),
 		array(
 			'id' => 6,
@@ -68,7 +68,7 @@ class ArosAcoFixture extends CakeTestFixture {
 			'_create' => '1',
 			'_read' => '1',
 			'_update' => '1',
-			'_delete' => '1',
+			'_delete' => '1'
 		),
 		array(
 			'id' => 7,
@@ -77,7 +77,7 @@ class ArosAcoFixture extends CakeTestFixture {
 			'_create' => '1',
 			'_read' => '1',
 			'_update' => '1',
-			'_delete' => '1',
+			'_delete' => '1'
 		),
 	);
 }

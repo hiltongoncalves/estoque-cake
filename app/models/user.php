@@ -26,7 +26,9 @@ class User extends AppModel {
  * @access public
  */
 	public $actsAs = array(
-		'Acl' => 'requester'
+		'Acl' => array(
+			'requester'
+		),
 	);
 /**
  * Validation
