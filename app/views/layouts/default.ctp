@@ -60,7 +60,28 @@ echo $javascript->link(array('prototype'));
 		echo $content_for_layout;
 		?>
 	</div></div>		
-<!-- footer starts here -->	
+<!-- footer starts here -->
+<div id="footer"><div id="footer-content">
+
+		<div class="col float-left">
+			<h1><?php echo __('Language'); ?></h1>
+			<ul>
+				<li><?php echo $this->Html->link(sprintf(__('pt-br', true)), array('controller' => 'lang', 'action' => 'pt-br')); ?></li>
+				<li><?php echo $this->Html->link(sprintf(__('eng', true)), array('controller' => 'lang', 'action' => 'eng')); ?></li>
+			</ul>
+		</div>
+
+		<div class="col2 float-right">
+		<p>
+		&copy; copyright 2010 <strong>Vitor Pacheco Costa</strong><br />
+		</p>
+
+		<ul>
+			<li><?php echo $this->Html->link(sprintf(__('Home', true)), array('controller' => 'pages', 'action' => 'display', 'home')); ?></li>
+		</ul>
+		</div>
+
+</div></div>
 <!-- footer ends here -->
 	
 <!-- wrap ends here -->

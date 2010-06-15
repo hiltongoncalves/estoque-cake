@@ -48,6 +48,13 @@
  * Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
-	setlocale(LC_TIME,"br_BR.UTF-8");
+
+/**
+ * Company configurations
+ */
 	Configure::write('Company.name', 'Company');
+/*
+ * i18n configurations
+ */
+	define('DEFAULT_LANGUAGE', 'pt-br');
 ?>

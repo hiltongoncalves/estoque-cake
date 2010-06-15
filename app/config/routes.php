@@ -32,4 +32,21 @@
  * ...and connect the rest of 'Pages' controller's urls.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+/**
+ * Routes for component p28n
+ */
+	Router::connect('/lang/*', array(
+		'controller' => 'p28n',
+		'action' => 'change'
+	));
+	Router::connect('/eng?/*', array(
+		'controller' => 'p28n',
+		'action' => 'shuntRequest',
+		'lang' => 'eng',
+	));
+	Router::connect('/pt[_-]br/*', array(
+		'controller' => 'p28n',
+		'action' => 'shuntRequest',
+		'lang' => 'pt-br',
+	));
 ?>

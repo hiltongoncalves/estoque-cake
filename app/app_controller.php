@@ -24,7 +24,8 @@ class AppController extends Controller {
 		'Acl',
 		'Auth',
 		'Session',
-		'DebugKit.Toolbar'
+		'DebugKit.Toolbar',
+		'P28n',
 	);
 /**
  * Helpers
@@ -38,7 +39,7 @@ class AppController extends Controller {
 		'Time',
 		'Session',
 		'Ajax',
-		'Javascript'
+		'Javascript',
 	);
 	
 /**

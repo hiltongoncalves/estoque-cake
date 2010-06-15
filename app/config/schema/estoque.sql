@@ -1,10 +1,56 @@
-#App sql generated on: 2010-05-27 18:29:53 : 1274995793
+#App sql generated on: 2010-06-15 13:59:08 : 1276621148
 
+DROP TABLE IF EXISTS `acos`;
+DROP TABLE IF EXISTS `aros`;
+DROP TABLE IF EXISTS `aros_acos`;
+DROP TABLE IF EXISTS `groups`;
 DROP TABLE IF EXISTS `products`;
 DROP TABLE IF EXISTS `products_sales`;
 DROP TABLE IF EXISTS `sales`;
 DROP TABLE IF EXISTS `users`;
 
+
+CREATE TABLE `acos` (
+	`id` int(10) NOT NULL AUTO_INCREMENT,
+	`parent_id` int(10) DEFAULT NULL,
+	`model` varchar(255) DEFAULT NULL,
+	`foreign_key` int(10) DEFAULT NULL,
+	`alias` varchar(255) DEFAULT NULL,
+	`lft` int(10) DEFAULT NULL,
+	`rght` int(10) DEFAULT NULL,	PRIMARY KEY  (`id`))	DEFAULT CHARSET=utf8,
+	COLLATE=utf8_general_ci,
+	ENGINE=InnoDB;
+
+CREATE TABLE `aros` (
+	`id` int(10) NOT NULL AUTO_INCREMENT,
+	`parent_id` int(10) DEFAULT NULL,
+	`model` varchar(255) DEFAULT NULL,
+	`foreign_key` int(10) DEFAULT NULL,
+	`alias` varchar(255) DEFAULT NULL,
+	`lft` int(10) DEFAULT NULL,
+	`rght` int(10) DEFAULT NULL,	PRIMARY KEY  (`id`))	DEFAULT CHARSET=utf8,
+	COLLATE=utf8_general_ci,
+	ENGINE=InnoDB;
+
+CREATE TABLE `aros_acos` (
+	`id` int(10) NOT NULL AUTO_INCREMENT,
+	`aro_id` int(10) NOT NULL,
+	`aco_id` int(10) NOT NULL,
+	`_create` varchar(2) DEFAULT '0' NOT NULL,
+	`_read` varchar(2) DEFAULT '0' NOT NULL,
+	`_update` varchar(2) DEFAULT '0' NOT NULL,
+	`_delete` varchar(2) DEFAULT '0' NOT NULL,	PRIMARY KEY  (`id`),
+	UNIQUE KEY `ARO_ACO_KEY` (`aro_id`, `aco_id`))	DEFAULT CHARSET=utf8,
+	COLLATE=utf8_general_ci,
+	ENGINE=InnoDB;
+
+CREATE TABLE `groups` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`name` varchar(100) NOT NULL,
+	`created` datetime DEFAULT NULL,
+	`modified` datetime DEFAULT NULL,	PRIMARY KEY  (`id`))	DEFAULT CHARSET=utf8,
+	COLLATE=utf8_general_ci,
+	ENGINE=InnoDB;
 
 CREATE TABLE `products` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
@@ -32,20 +78,11 @@ CREATE TABLE `sales` (
 
 CREATE TABLE `users` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
-	`name` varchar(60) DEFAULT NULL,
-	`phone` varchar(15) DEFAULT NULL,
-	`address` varchar(200) DEFAULT NULL,
-	`email` varchar(80) DEFAULT NULL,
-	`admin` int(4) DEFAULT NULL,
-	`username` varchar(45) DEFAULT NULL,
-	`password` varchar(45) DEFAULT NULL,
-	`status` int(4) DEFAULT 1,
-	`cpf` varchar(11) DEFAULT NULL,	PRIMARY KEY  (`id`),
-	UNIQUE KEY `cpf_UNIQUE` (`cpf`),
-	UNIQUE KEY `username_UNIQUE` (`username`))	DEFAULT CHARSET=utf8,
+	`username` varchar(255) NOT NULL,
+	`password` varchar(40) NOT NULL,
+	`group_id` int(11) NOT NULL,
+	`created` datetime DEFAULT NULL,
+	`modified` datetime DEFAULT NULL,	PRIMARY KEY  (`id`),
+	UNIQUE KEY `username` (`username`))	DEFAULT CHARSET=utf8,
 	COLLATE=utf8_general_ci,
 	ENGINE=InnoDB;
-
-INSERT INTO `estoque`.`users`
-(`id`, `name`, `admin`, `username`, `password`, `status`)
-VALUES (1, 'Administrador', 1, 'admin', 'd01e94c2b5e45b246769b5659a9d4a17f1072c63', 1);
